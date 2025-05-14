@@ -15,9 +15,16 @@
 </head>
 <body>
     <h1>主观题评分误差分析报告</h1>
+    <ul>
+        <li><a href="#base_desc">试卷基本情况描述</a></li>
+        <li><a href="#error_desc">试卷整体误差统计描述</a></li>
+        <li><a href="#acc_desc">判分准确性分析</a></li>
+        <li><a href="#compare_desc">按规则筛选数据后准确性结果</a></li>
+        <li><a href="#final_desc">最终准确率结果（小题层面）</a></li>
+    </ul>
 
     <p>本报告汇总了模型评分与教师评分在多个维度下的误差统计分析，包括不同试卷、题型、分值下的分布可视化和一致性对比。</p>
-<h2>试卷基本情况描述</h2><p>下面是关于各科目各试卷从小题和大题两个层面下一些基本情况的统计。</p>
+<h2 id='base_desc'>试卷基本情况描述</h2><p>下面是关于各科目各试卷从小题和大题两个层面下一些基本情况的统计。</p>
 <div class="table-section">
     <h3>小题层面</h3>
     <label for="filter-html_ques_base">选择科目：</label>
@@ -137,7 +144,7 @@
     </table>
     
 </div>
-<h2>试卷整体误差统计描述</h2><p>下面表格是从小题和大题（如果多个小题同属于一个大题，大题的模型打分和老师打分为对应小题分数之和）两个层面统计的关于老师打分和模型打分之间分差的描述统计量</p>
+<h2 id='error_desc'>试卷整体误差统计描述</h2><p>下面表格是从小题和大题（如果多个小题同属于一个大题，大题的模型打分和老师打分为对应小题分数之和）两个层面统计的关于老师打分和模型打分之间分差的描述统计量</p>
 <div class="table-section">
     <h3>小题层面</h3>
     <label for="filter-html_ques_error">选择科目：</label>
@@ -257,7 +264,7 @@
     </table>
     
 </div>
-<h2>判分准确性分析</h2><div class="description">
+<h2 id='acc_desc'>判分准确性分析</h2><div class="description">
         <p>以下是从多个角度统计的模型判分准确性指标，其中精准匹配1/2/3是根据一下三种规则得到一个误差合理值或者误差合理范围，然后统计的分差在对应误差范围内的数据占比。规则如下：<br>
            规则1：取题目最小得分点和该题目分值的10%两者之间的最小值；<br>
            规则2：分差的百分之95%分位数；<br>
@@ -910,7 +917,7 @@
     </table>
     
 </div>
-<h2>按规则筛选数据后准确性结果</h2><div class="description">
+<h2 id='compare_desc'>按规则筛选数据后准确性结果</h2><div class="description">
         <p>以下结果是根据题目判分类型和观察模型判定错误类型及数据后总结的一些筛选规则，根据规则筛选出来的数据暂时认定为是模型判断无误的数据。<br>
         表格展示的是小题和大题层面，各科目最终版本数据的各项指标准确率和基于最终版本和筛选条件后计算的准确率结果的对比。<br>
         黑色代表两者准确率没有差异，红色代表处理后数据的准确率下降，绿色代表处理后数据的准确率上升。<br>
@@ -1267,7 +1274,7 @@
     </table>
     
 </div>
-<h2>最终准确率结果（小题层面）</h2><div class="description">
+<h2 id='final_desc'>最终准确率结果（小题层面）</h2><div class="description">
         <p>以下结果是展示的每个科目最新版数据在经过数据清洗后得到的完全匹配和精准匹配1结果，老师误判是根据各科目给到的一些规则对非精准匹配范围的数据进行统计得到的结果。<br>
         <b>最终准确率可参考：精准匹配1比例 + 老师误判比例 。</b><br>
            经济法老师误判情况1：老师打满分，模型打分小于老师分且模型打分为1.5分；<br>
@@ -1318,7 +1325,7 @@
     </table>
     
 </div>
-<h2>不同条件下两者打分对比</h2><img src="fig_score_dist_by_paper.png" alt="图表"><img src="fig_score_dist_by_question_score.png" alt="图表"><img src="fig_score_dist_by_question_type.png" alt="图表">
+<h2 id='fig-section'>不同条件下两者打分对比</h2><img src="fig_score_dist_by_paper.png" alt="图表"><img src="fig_score_dist_by_question_score.png" alt="图表"><img src="fig_score_dist_by_question_type.png" alt="图表">
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const filters = document.querySelectorAll('.subject-filter');
