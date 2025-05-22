@@ -8,32 +8,92 @@
         body { 
             font-family: "Microsoft YaHei", 
             sans-serif; 
-            padding: 40px; 
+            padding: 40px 40px 40px 220px;
             line-height: 1.6; 
-            margin: 0;
             box-sizing: border-box; /* 确保padding不会增加元素的实际宽度或高度 */
+            position: relative;
         }
-        h2 { margin-top: 40px; }
+        h1 { margin-top: 0; }
+        h2 { 
+            margin-top: 40px; 
+            padding-top: 20px; 
+            scroll-margin-top: 120px; /* 防止目录遮挡 */
+        }
         img { max-width: 100%; height: auto; margin: 20px 0; border: 1px solid #ddd; }
         label { margin-right: 10px; }
         select.subject-filter { padding: 5px; font-size: 14px; }
         .table-section { margin-bottom: 30px; }
-
+        
+        /* 新增目录样式 - 简洁不突兀 */
+        .toc-wrapper {
+            position: fixed;
+            left: 10px;
+            top: 20px;
+            width: 180px;
+            max-height: 90vh;
+            overflow-y: auto;
+            background: rgba(255,255,255,0.9);
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 100;
+        }
+        
+        .toc-title {
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .toc-nav ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        
+        .toc-nav li {
+            margin-bottom: 6px;
+        }
+        
+        .toc-nav a {
+            display: block;
+            padding: 4px 8px;
+            color: #555;
+            text-decoration: none;
+            font-size: 13px;
+            border-left: 3px solid transparent;
+            transition: all 0.2s;
+        }
+        
+        .toc-nav a:hover {
+            color: #1a73e8;
+            border-left-color: #1a73e8;
+        }
+        
+        .toc-nav a.active {
+            color: #1a73e8;
+            font-weight: bold;
+            border-left-color: #1a73e8;
+            background: rgba(26,115,232,0.05);
+        }
     </style>
 </head>
 <body>
     <h1>主观题评分误差分析报告</h1>
     <p>本报告汇总了模型评分与教师评分在多个维度下的误差统计分析，包括不同试卷、题型、分值下的分布可视化和一致性对比。</p>
     
-    <div class="fixed-toc">
-    <ul>
-        <li><a href="#base_desc">试卷基本情况描述统计</a></li>
-        <li><a href="#error_desc">试卷整体误差描述统计</a></li>
-        <li><a href="#acc_desc">判分准确性各项指标</a></li>
-        <li><a href="#score_level_desc">分数段层面准确率</a></li>
-        <li><a href="#ques_type_desc">题型层面准确率</a></li>
-        <li><a href="#final_desc">最终准确率结果（小题层面）</a></li>
-    </ul>
+    <div class="toc-wrapper">
+        <nav class="toc-nav">
+            <ul>
+                <li><a href="#base_desc">试卷基本情况描述统计</a></li>
+                <li><a href="#error_desc">试卷整体误差描述统计</a></li>
+                <li><a href="#acc_desc">判分准确性各项指标</a></li>
+                <li><a href="#score_level_desc">分数段层面准确率</a></li>
+                <li><a href="#ques_type_desc">题型层面准确率</a></li>
+                <li><a href="#final_desc">最终准确率结果（小题层面）</a></li>
+            </ul>
+        </nav>
     </div>
 <h2 id='base_desc'>试卷基本情况描述统计</h2><p>下面是关于各科目各试卷从小题和大题两个层面下一些基本情况的统计。</p>
 <div class="table-section">
@@ -88,7 +148,7 @@
             </tr>
         
             <tr class="" data-subject="财管">
-                <td>财管</td><td>1828837(3)_表格分析+模型优化</td><td>236</td><td>12</td><td>3</td><td>4.5</td><td>2</td>
+                <td>财管</td><td>1828837(4)_模型优化</td><td>236</td><td>12</td><td>3</td><td>4.5</td><td>2</td>
             </tr>
         
             <tr class="subject-end" data-subject="财管">
@@ -152,7 +212,7 @@
             </tr>
         
             <tr class="" data-subject="财管">
-                <td>财管</td><td>1828837(3)_表格分析+模型优化</td><td>86</td><td>4</td><td>6.812</td><td>9</td><td>3</td>
+                <td>财管</td><td>1828837(4)_模型优化</td><td>86</td><td>4</td><td>6.812</td><td>9</td><td>3</td>
             </tr>
         
             <tr class="subject-end" data-subject="财管">
@@ -216,7 +276,7 @@
             </tr>
         
             <tr class="" data-subject="财管">
-                <td>财管</td><td>1828837(3)_表格分析+模型优化</td><td>-0.261</td><td>0</td><td>0.917</td><td>-4.5</td><td>2.5</td><td>0.489</td><td>-0.5</td><td>0</td><td>1</td>
+                <td>财管</td><td>1828837(4)_模型优化</td><td>-0.288</td><td>0</td><td>0.932</td><td>-4.5</td><td>2.5</td><td>0.494</td><td>-0.5</td><td>0</td><td>1</td>
             </tr>
         
             <tr class="subject-end" data-subject="财管">
@@ -280,7 +340,7 @@
             </tr>
         
             <tr class="" data-subject="财管">
-                <td>财管</td><td>1828837(3)_表格分析+模型优化</td><td>-0.715</td><td>-0.12</td><td>1.617</td><td>-7.5</td><td>2.5</td><td>1.137</td><td>-1.5</td><td>0</td><td>1</td>
+                <td>财管</td><td>1828837(4)_模型优化</td><td>-0.791</td><td>-0.28</td><td>1.656</td><td>-7.5</td><td>2.5</td><td>1.163</td><td>-1.315</td><td>0</td><td>1</td>
             </tr>
         
             <tr class="subject-end" data-subject="财管">
@@ -293,16 +353,17 @@
 </div>
 <h2 id='acc_desc'>判分准确性各项指标</h2><div class="description">
         <p>下方表格呈现的是从多个角度统计的模型判分准确性指标，其中精准匹配1/2/3是根据一下三种规则得到一个误差合理值或者误差合理范围，然后统计的分差在对应误差范围内的数据占比。规则如下：<br>
-           规则1：取题目最小得分点和该题目分值的10%两者之间的最小值；<br>
+           <b>规则1：取题目最小得分点和该题目分值的10%两者之间的最小值；<br>
            规则2：分差的百分之95%分位数；<br>
-           规则3：获取分差均值和标准差，计算均值正负一个标准差范围。</p>
-        <p>下方表格中呈现了两版数据几个，一版是原始数据，一版是经过下述筛选条件对数据做清洗后的结果。<br>
+           规则3：获取分差均值和标准差，计算均值正负一个标准差范围。</b></p>
+
+        <p>下方表格中呈现了两版数据的结果。一版是原始数据，一版是经过下述筛选条件对数据做清洗后的结果。<br>
         黑色代表两版数据准确率没有差异，红色代表清洗后数据的准确率下降，绿色代表清洗后数据的准确率上升。<br>
-           筛选条件1：财管剔除题目类型为“表格”且模型判分为0的数据（可能是学生答案没填在表格里，没法判）；<br>
+           <b>筛选条件1：财管剔除题目类型为“表格”且模型判分为0的数据（可能是学生答案没填在表格里，没法判）；<br>
            筛选条件2：财管剔除某个表格题目（该题目的表格格式不固定，模型暂时判不准）；<br>
            筛选条件3：财管中如果某个小题错误类型都是单位错误，暂时认定该题目模型打分和老师判分没分差；<br>
-           筛选条件4：战略中有错误类型包含“正确答案已经全部匹配”字样，暂时认定该题目模型打分和老师判分没分差<br>
-           筛选条件5：经济法中有模型判分超过题目原始分值的统一修改为模型原始分值（判分规则不一致）</p>
+           筛选条件4：战略中有错误类型包含“正确答案已经全部匹配”字样，暂时认定该题目模型打分和老师判分没分差；<br>
+           筛选条件5：经济法中有模型判分超过题目原始分值的统一修改为模型原始分值（判分规则不一致）。</b></p>
     </div>
 <div class="table-section">
     <h3>小题层面</h3>
@@ -356,7 +417,7 @@
             </tr>
         
             <tr class="" data-subject="财管">
-                <td>财管</td><td>1828837(3)_表格分析+模型优化</td><td>59.75% <span style="color:green">（60.52%）</span></td><td>28.81% <span style="color:red">（27.9%）</span></td><td>11.44% <span style="color:green">（11.59%）</span></td><td>60.17% <span style="color:green">（60.94%）</span></td><td>86.86% <span style="color:green">（87.98%）</span></td><td>82.2% <span style="color:red">（81.97%）</span></td><td>72.03% <span style="color:green">（72.96%）</span></td><td>73.31% <span style="color:green">（74.25%）</span></td><td>86.86% <span style="color:green">（87.98%）</span></td><td>61.02% <span style="color:green">（61.8%）</span></td><td>61.02% <span style="color:green">（61.8%）</span></td><td>63.56% <span style="color:green">（64.38%）</span></td>
+                <td>财管</td><td>1828837(4)_模型优化</td><td>59.32% <span style="color:green">（60.09%）</span></td><td>29.66% <span style="color:red">（28.76%）</span></td><td>11.02% <span style="color:green">（11.16%）</span></td><td>59.75% <span style="color:green">（60.52%）</span></td><td>88.14% <span style="color:green">（89.27%）</span></td><td>83.47% <span style="color:green">（83.69%）</span></td><td>72.88% <span style="color:green">（73.82%）</span></td><td>74.58% <span style="color:green">（75.54%）</span></td><td>88.14% <span style="color:green">（89.27%）</span></td><td>60.59% <span style="color:green">（61.37%）</span></td><td>60.59% <span style="color:green">（61.37%）</span></td><td>63.14% <span style="color:green">（63.95%）</span></td>
             </tr>
         
             <tr class="subject-end" data-subject="财管">
@@ -420,7 +481,7 @@
             </tr>
         
             <tr class="" data-subject="财管">
-                <td>财管</td><td>1828837(3)_表格分析+模型优化</td><td>29.07%</td><td>51.16% <span style="color:red">（50.0%）</span></td><td>19.77% <span style="color:green">（20.93%）</span></td><td>43.02%</td><td>68.6%</td><td>70.93% <span style="color:red">（63.95%）</span></td><td>43.02%</td><td>45.35%</td><td>68.6%</td><td>32.56%</td><td>43.02%</td><td>60.47% <span style="color:red">（59.3%）</span></td>
+                <td>财管</td><td>1828837(4)_模型优化</td><td>26.74%</td><td>54.65% <span style="color:red">（53.49%）</span></td><td>18.6% <span style="color:green">（19.77%）</span></td><td>44.19%</td><td>69.77%</td><td>70.93%</td><td>44.19%</td><td>45.35%</td><td>69.77%</td><td>33.72%</td><td>44.19%</td><td>62.79% <span style="color:red">（61.63%）</span></td>
             </tr>
         
             <tr class="subject-end" data-subject="财管">
@@ -534,11 +595,11 @@
             </tr>
         
             <tr class="" data-subject="财管">
-                <td>财管</td><td>1828837(3)_表格分析+模型优化</td><td>60%以上</td><td>61.94% <span style="color:red">（60.8%）</span></td><td>29.1% <span style="color:red">（28.41%）</span></td><td>8.96% <span style="color:green">（10.8%）</span></td><td>62.69% <span style="color:red">（61.36%）</span></td><td>85.07% <span style="color:green">（86.93%）</span></td><td>82.84% <span style="color:red">（81.82%）</span></td><td>71.64% <span style="color:red">（71.59%）</span></td><td>73.88% <span style="color:red">（73.3%）</span></td><td>85.07% <span style="color:green">（86.93%）</span></td><td>62.69% <span style="color:red">（61.36%）</span></td><td>62.69% <span style="color:red">（61.36%）</span></td><td>64.93% <span style="color:red">（63.64%）</span></td>
+                <td>财管</td><td>1828837(4)_模型优化</td><td>60%以上</td><td>60.45% <span style="color:green">（60.8%）</span></td><td>29.85% <span style="color:red">（27.84%）</span></td><td>9.7% <span style="color:green">（11.36%）</span></td><td>60.45% <span style="color:green">（60.8%）</span></td><td>85.82% <span style="color:green">（88.07%）</span></td><td>83.58% <span style="color:red">（83.52%）</span></td><td>71.64% <span style="color:green">（73.3%）</span></td><td>74.63% <span style="color:green">（75.57%）</span></td><td>85.82% <span style="color:green">（88.07%）</span></td><td>60.45% <span style="color:green">（60.8%）</span></td><td>60.45% <span style="color:green">（60.8%）</span></td><td>62.69% <span style="color:green">（63.07%）</span></td>
             </tr>
         
             <tr class="" data-subject="财管">
-                <td></td><td></td><td>30%~60%</td><td>57.95% <span style="color:green">（62.79%）</span></td><td>27.27% <span style="color:red">（23.26%）</span></td><td>14.77% <span style="color:red">（13.95%）</span></td><td>57.95% <span style="color:green">（62.79%）</span></td><td>88.64% <span style="color:green">（90.7%）</span></td><td>81.82% <span style="color:green">（83.72%）</span></td><td>72.73% <span style="color:green">（79.07%）</span></td><td>72.73% <span style="color:green">（79.07%）</span></td><td>88.64% <span style="color:green">（90.7%）</span></td><td>59.09% <span style="color:green">（65.12%）</span></td><td>59.09% <span style="color:green">（65.12%）</span></td><td>62.5% <span style="color:green">（69.77%）</span></td>
+                <td></td><td></td><td>30%~60%</td><td>59.09% <span style="color:green">（60.47%）</span></td><td>28.41% <span style="color:green">（30.23%）</span></td><td>12.5% <span style="color:red">（9.3%）</span></td><td>60.23% <span style="color:green">（62.79%）</span></td><td>90.91% <span style="color:green">（93.02%）</span></td><td>84.09% <span style="color:green">（86.05%）</span></td><td>75.0% <span style="color:green">（76.74%）</span></td><td>75.0% <span style="color:green">（76.74%）</span></td><td>90.91% <span style="color:green">（93.02%）</span></td><td>61.36% <span style="color:green">（65.12%）</span></td><td>61.36% <span style="color:green">（65.12%）</span></td><td>64.77% <span style="color:green">（69.77%）</span></td>
             </tr>
         
             <tr class="" data-subject="财管">
@@ -652,7 +713,7 @@
             </tr>
         
             <tr class="" data-subject="财管">
-                <td>财管</td><td>1828837(3)_表格分析+模型优化</td><td>文本</td><td>21</td><td>0.0%</td><td>4.76%</td><td>4.76%</td><td>0.0%</td><td>2.5</td><td>2.5</td><td>2.5</td><td>0.0</td><td>-2.5</td><td>-0.12</td>
+                <td>财管</td><td>1828837(4)_模型优化</td><td>文本</td><td>21</td><td>0.0%</td><td>4.76%</td><td>4.76%</td><td>0.0%</td><td>2.5</td><td>2.5</td><td>2.5</td><td>0.0</td><td>-2.5</td><td>-0.12</td>
             </tr>
         
             <tr class="" data-subject="财管">
@@ -660,7 +721,7 @@
             </tr>
         
             <tr class="" data-subject="财管">
-                <td></td><td></td><td>观点+理由</td><td>20</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>2.0</td><td>2</td><td>2.0</td><td>1.0</td><td>-1.0</td><td>-0.12</td>
+                <td></td><td></td><td>观点+理由</td><td>20</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>2.0</td><td>2</td><td>2.0</td><td>1.0</td><td>-1.0</td><td>-0.18</td>
             </tr>
         
             <tr class="" data-subject="财管">
@@ -668,11 +729,7 @@
             </tr>
         
             <tr class="" data-subject="财管">
-                <td></td><td></td><td>计算</td><td>152</td><td>1.32%</td><td>7.89%</td><td>1.32%</td><td>0.0%</td><td>3.0</td><td>2</td><td>2.8</td><td>2.19</td><td>-2.5</td><td>-0.09</td>
-            </tr>
-        
-            <tr class="" data-subject="财管">
-                <td></td><td></td><td>计算+文本</td><td>20</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>3.0</td><td>3</td><td>3.0</td><td>0.0</td><td>-2.0</td><td>-1.07</td>
+                <td></td><td></td><td>计算</td><td>172</td><td>0.58%</td><td>10.47%</td><td>4.07%</td><td>0.0%</td><td>3.0</td><td>2</td><td>2.82</td><td>2.0</td><td>-3.0</td><td>-0.24</td>
             </tr>
         
             <tr class="" data-subject="财管">
@@ -730,20 +787,36 @@
                 <td>会计</td><td>1834829(1)_初版</td><td>1053</td><td>58.21%</td><td>58.31%</td><td>/</td><td>58.31%</td>
             </tr>
         
-            <tr class="subject-end" data-subject="战略">
+            <tr class="" data-subject="战略">
                 <td>战略</td><td>1822327(1)_初版</td><td>702</td><td>44.02%</td><td>51.57%</td><td>/</td><td>51.57%</td>
             </tr>
         
+            <tr class="subject-end" data-subject="战略">
+                <td></td><td>1835285(1)_初版</td><td>227</td><td>38.33%</td><td>43.61%</td><td>/</td><td>43.61%</td>
+            </tr>
+        
+            <tr class="" data-subject="税法">
+                <td>税法</td><td>1828855(3)_修改模型占比</td><td>852</td><td>76.64%</td><td>76.64%</td><td>/</td><td>76.64%</td>
+            </tr>
+        
             <tr class="subject-end" data-subject="税法">
-                <td>税法</td><td>1836221(3)_修改模型占比</td><td>433</td><td>92.15%</td><td>92.15%</td><td>/</td><td>92.15%</td>
+                <td></td><td>1836221(3)_修改模型占比</td><td>433</td><td>92.15%</td><td>92.15%</td><td>/</td><td>92.15%</td>
+            </tr>
+        
+            <tr class="" data-subject="经济法">
+                <td>经济法</td><td>1822311(1)_初版</td><td>1947</td><td>54.49%</td><td>58.24%</td><td>0.0%</td><td>58.24%</td>
             </tr>
         
             <tr class="subject-end" data-subject="经济法">
-                <td>经济法</td><td>1836223(3)_最新版</td><td>1008</td><td>41.96%</td><td>41.96%</td><td>29.66%</td><td>71.62%</td>
+                <td></td><td>1836223(3)_最新版</td><td>1008</td><td>41.96%</td><td>41.96%</td><td>29.66%</td><td>71.62%</td>
+            </tr>
+        
+            <tr class="" data-subject="财管">
+                <td>财管</td><td>1828837(4)_模型优化</td><td>233</td><td>60.09%</td><td>60.52%</td><td>29.61%</td><td>90.13%</td>
             </tr>
         
             <tr class="subject-end" data-subject="财管">
-                <td>财管</td><td>1835723(3)_表格分析+模型优化</td><td>299</td><td>66.22%</td><td>73.58%</td><td>18.39%</td><td>91.97%</td>
+                <td></td><td>1835723(3)_表格分析+模型优化</td><td>299</td><td>66.22%</td><td>73.58%</td><td>18.39%</td><td>91.97%</td>
             </tr>
         
         </tbody>
@@ -784,4 +857,57 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 </script>
-</body></html>
+
+<script>
+    // 平滑滚动和高亮功能
+    document.addEventListener('DOMContentLoaded', function() {
+        const links = document.querySelectorAll('.toc-link');
+        const sections = document.querySelectorAll('h2[id]');
+        
+        // 点击目录平滑滚动
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 滚动时自动高亮
+        function updateActiveLink() {
+            let current = '';
+            const scrollPos = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollPos >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            links.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        // 优化滚动性能
+        let isScrolling;
+        window.addEventListener('scroll', function() {
+            clearTimeout(isScrolling);
+            isScrolling = setTimeout(updateActiveLink, 50);
+        });
+        
+        // 初始化
+        updateActiveLink();
+    });
+</script>
+</body>
+</html>
