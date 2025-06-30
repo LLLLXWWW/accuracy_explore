@@ -99,7 +99,7 @@
 <div class="table-section">
     <h3>小题层面</h3>
     <label for="filter-html_ques_base">选择科目：</label>
-    <select id="filter-html_ques_base" class="subject-filter">
+    <select id="filter-html_ques_base" class="subject-filter" multiple>
         <option value="">全部科目</option>
         <option value="会计">会计</option>
 <option value="战略">战略</option>
@@ -172,7 +172,7 @@
 <div class="table-section">
     <h3>大题层面</h3>
     <label for="filter-html_group_base">选择科目：</label>
-    <select id="filter-html_group_base" class="subject-filter">
+    <select id="filter-html_group_base" class="subject-filter" multiple>
         <option value="">全部科目</option>
         <option value="会计">会计</option>
 <option value="战略">战略</option>
@@ -245,7 +245,7 @@
 <div class="table-section">
     <h3>小题层面</h3>
     <label for="filter-html_ques_error">选择科目：</label>
-    <select id="filter-html_ques_error" class="subject-filter">
+    <select id="filter-html_ques_error" class="subject-filter" multiple>
         <option value="">全部科目</option>
         <option value="会计">会计</option>
 <option value="战略">战略</option>
@@ -318,7 +318,7 @@
 <div class="table-section">
     <h3>大题层面</h3>
     <label for="filter-html_group_error">选择科目：</label>
-    <select id="filter-html_group_error" class="subject-filter">
+    <select id="filter-html_group_error" class="subject-filter" multiple>
         <option value="">全部科目</option>
         <option value="会计">会计</option>
 <option value="战略">战略</option>
@@ -404,7 +404,7 @@
 <div class="table-section">
     <h3>小题层面</h3>
     <label for="filter-compare_ques_acc">选择科目：</label>
-    <select id="filter-compare_ques_acc" class="subject-filter">
+    <select id="filter-compare_ques_acc" class="subject-filter" multiple>
         <option value="">全部科目</option>
         <option value="会计">会计</option>
 <option value="战略">战略</option>
@@ -477,7 +477,7 @@
 <div class="table-section">
     <h3>大题层面</h3>
     <label for="filter-compare_group_acc">选择科目：</label>
-    <select id="filter-compare_group_acc" class="subject-filter">
+    <select id="filter-compare_group_acc" class="subject-filter" multiple>
         <option value="">全部科目</option>
         <option value="会计">会计</option>
 <option value="战略">战略</option>
@@ -552,7 +552,7 @@
 <div class="table-section">
     <h3>分数段层面（小题层面统计）</h3>
     <label for="filter-compare_level_acc">选择科目：</label>
-    <select id="filter-compare_level_acc" class="subject-filter">
+    <select id="filter-compare_level_acc" class="subject-filter" multiple>
         <option value="">全部科目</option>
         <option value="会计">会计</option>
 <option value="战略">战略</option>
@@ -707,7 +707,7 @@
 <div class="table-section">
     <h3>题型层面打分情况描述（小题层面统计）</h3>
     <label for="filter-compare_ques_type_stats">选择科目：</label>
-    <select id="filter-compare_ques_type_stats" class="subject-filter">
+    <select id="filter-compare_ques_type_stats" class="subject-filter" multiple>
         <option value="">全部科目</option>
         <option value="会计">会计</option>
 <option value="战略">战略</option>
@@ -892,9 +892,11 @@
 <div class="table-section">
     <h3>小题层面</h3>
     <label for="filter-final_acc_res">选择科目：</label>
-    <select id="filter-final_acc_res" class="subject-filter">
+    <select id="filter-final_acc_res" class="subject-filter" multiple>
         <option value="">全部科目</option>
-        <option value="税法">税法</option>
+        <option value="会计">会计</option>
+<option value="战略">战略</option>
+<option value="税法">税法</option>
 <option value="经济法">经济法</option>
 <option value="财管">财管</option>
     </select>
@@ -911,6 +913,14 @@
         </thead>
         <tbody>
     
+            <tr class="subject-end" data-subject="会计">
+                <td>会计</td><td>基础阶段第一次月考</td><td>1834829(1)_初版</td><td>1053</td><td>58.21%</td><td>58.31%</td><td>/</td><td>/</td><td>58.31%</td>
+            </tr>
+        
+            <tr class="subject-end" data-subject="战略">
+                <td>战略</td><td>基础阶段第一次月考</td><td>1835285(1)_初版</td><td>227</td><td>38.33%</td><td>43.61%</td><td>/</td><td>/</td><td>43.61%</td>
+            </tr>
+        
             <tr class="subject-end" data-subject="税法">
                 <td>税法</td><td>基础阶段第二次月考</td><td>1839417(1)_初版</td><td>838</td><td>80.55%</td><td>80.55%</td><td>12.29%</td><td>/</td><td>92.84%</td>
             </tr>
@@ -928,34 +938,41 @@
     
 </div>
 <h2 id='fig-section'>不同条件下两者打分对比</h2><img src="fig_score_dist_by_paper.png" alt="图表"><img src="fig_score_dist_by_question_score.png" alt="图表"><img src="fig_score_dist_by_question_type.png" alt="图表">
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const filters = document.querySelectorAll('.subject-filter');
+<!-- 引入 jQuery 和 Select2 -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-    filters.forEach(filter => {
-        filter.addEventListener('change', function () {
-            try {
-                const selectedSubject = this.value;
-                const tableId = this.id.replace('filter-', '');
-                const table = document.getElementById(tableId);
-                if (!table) {
-                    console.error(`Table with id ${tableId} not found`);
-                    return;
-                }
-                
-                const rows = table.querySelectorAll('tbody tr');
-                rows.forEach(row => {
-                    // 优先使用 data-subject 属性
-                    const subject = row.getAttribute('data-subject');
-                    
-                    if (!selectedSubject || !subject || subject === selectedSubject) {
-                        row.style.display = '';
-                    } else {
-                        row.style.display = 'none';
-                    }
-                });
-            } catch (e) {
-                console.error("Error during filtering:", e);
+<script>
+$(document).ready(function () {
+    // 初始化 Select2
+    $('.subject-filter').each(function () {
+        $(this).select2({
+            placeholder: "请选择科目",
+            allowClear: true,
+            width: '200px'
+        });
+    });
+
+    // 绑定 change 事件
+    $(document).on('change', '.subject-filter', function () {
+        const selectedSubjects = $(this).val(); // 获取选中的值数组
+        const tableId = this.id.replace('filter-', '');
+        const table = document.getElementById(tableId);
+
+        if (!table) {
+            console.error(`Table with id ${tableId} not found`);
+            return;
+        }
+
+        const rows = table.querySelectorAll('tbody tr');
+        rows.forEach(row => {
+            const subject = row.getAttribute('data-subject');
+
+            if (!selectedSubjects || selectedSubjects.length === 0 || !subject || selectedSubjects.includes(subject)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
             }
         });
     });
