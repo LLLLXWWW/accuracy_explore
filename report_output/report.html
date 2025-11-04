@@ -77,6 +77,11 @@
             border-left-color: #1a73e8;
             background: rgba(26,115,232,0.05);
         }
+
+        /* 表格基础样式增强 */
+        .table th {
+            border-bottom: 2px solid #333; /* 表头底部加粗边框 */
+        }
     </style>
 </head>
 <body>
@@ -91,23 +96,24 @@
                 <li><a href="#acc_desc">判分准确性各项指标</a></li>
                 <li><a href="#score_level_desc">分数段层面准确率</a></li>
                 <li><a href="#ques_type_desc">题型层面准确率</a></li>
-                <li><a href="#final_desc">最终准确率结果（小题层面）</a></li>
+                <li><a href="#final_desc">最终准确率结果(小题层面, 和VIP老师评分结果对比)</a></li>
+                <li><a href="#model_accuracy">模型准确率--专家评分对比结果</a></li>
             </ul>
         </nav>
     </div>
 <h2 id='base_desc'>试卷基本情况描述统计</h2><p>下面是关于各科目各试卷从小题和大题两个层面下一些基本情况的统计。</p>
-<div class="table-section">
-    <h3>小题层面</h3>
-    <label for="filter-html_ques_base">选择科目：</label>
-    <select id="filter-html_ques_base" class="subject-filter" multiple>
-        <option value="">全部科目</option>
-        <option value="会计">会计</option>
+        <div class="table-section">
+            <h3>小题层面</h3>
+            <label for="filter-html_ques_base">选择科目：</label>
+            <select id="filter-html_ques_base" class="subject-filter" multiple>
+                <option value="">全部科目</option>
+                <option value="会计">会计</option>
 <option value="战略">战略</option>
 <option value="税法">税法</option>
 <option value="经济法">经济法</option>
 <option value="财管">财管</option>
-    </select>
-    
+            </select>
+            
     <style>
         th, td { text-align: center; padding: 6px; }
         th { border-bottom: 2px solid black; }
@@ -199,20 +205,20 @@
         </tbody>
     </table>
     
-</div>
-
-<div class="table-section">
-    <h3>大题层面</h3>
-    <label for="filter-html_group_base">选择科目：</label>
-    <select id="filter-html_group_base" class="subject-filter" multiple>
-        <option value="">全部科目</option>
-        <option value="会计">会计</option>
+        </div>
+        
+        <div class="table-section">
+            <h3>大题层面</h3>
+            <label for="filter-html_group_base">选择科目：</label>
+            <select id="filter-html_group_base" class="subject-filter" multiple>
+                <option value="">全部科目</option>
+                <option value="会计">会计</option>
 <option value="战略">战略</option>
 <option value="税法">税法</option>
 <option value="经济法">经济法</option>
 <option value="财管">财管</option>
-    </select>
-    
+            </select>
+            
     <style>
         th, td { text-align: center; padding: 6px; }
         th { border-bottom: 2px solid black; }
@@ -304,20 +310,20 @@
         </tbody>
     </table>
     
-</div>
-<h2 id='error_desc'>试卷整体误差描述统计</h2><p>下面表格是从小题和大题（如果多个小题同属于一个大题，大题的模型打分和老师打分为对应小题分数之和）两个层面统计的关于老师打分和模型打分之间分差的描述统计量</p>
-<div class="table-section">
-    <h3>小题层面</h3>
-    <label for="filter-html_ques_error">选择科目：</label>
-    <select id="filter-html_ques_error" class="subject-filter" multiple>
-        <option value="">全部科目</option>
-        <option value="会计">会计</option>
+        </div>
+        <h2 id='error_desc'>试卷整体误差描述统计</h2><p>下面表格是从小题和大题（如果多个小题同属于一个大题，大题的模型打分和老师打分为对应小题分数之和）两个层面统计的关于老师打分和模型打分之间分差的描述统计量</p>
+        <div class="table-section">
+            <h3>小题层面</h3>
+            <label for="filter-html_ques_error">选择科目：</label>
+            <select id="filter-html_ques_error" class="subject-filter" multiple>
+                <option value="">全部科目</option>
+                <option value="会计">会计</option>
 <option value="战略">战略</option>
 <option value="税法">税法</option>
 <option value="经济法">经济法</option>
 <option value="财管">财管</option>
-    </select>
-    
+            </select>
+            
     <style>
         th, td { text-align: center; padding: 6px; }
         th { border-bottom: 2px solid black; }
@@ -409,20 +415,20 @@
         </tbody>
     </table>
     
-</div>
-
-<div class="table-section">
-    <h3>大题层面</h3>
-    <label for="filter-html_group_error">选择科目：</label>
-    <select id="filter-html_group_error" class="subject-filter" multiple>
-        <option value="">全部科目</option>
-        <option value="会计">会计</option>
+        </div>
+        
+        <div class="table-section">
+            <h3>大题层面</h3>
+            <label for="filter-html_group_error">选择科目：</label>
+            <select id="filter-html_group_error" class="subject-filter" multiple>
+                <option value="">全部科目</option>
+                <option value="会计">会计</option>
 <option value="战略">战略</option>
 <option value="税法">税法</option>
 <option value="经济法">经济法</option>
 <option value="财管">财管</option>
-    </select>
-    
+            </select>
+            
     <style>
         th, td { text-align: center; padding: 6px; }
         th { border-bottom: 2px solid black; }
@@ -514,8 +520,8 @@
         </tbody>
     </table>
     
-</div>
-<h2 id='acc_desc'>判分准确性各项指标</h2><div class="description">
+        </div>
+        <h2 id='acc_desc'>判分准确性各项指标</h2><div class="description">
         <p>下方表格呈现的是从多个角度统计的模型判分准确性指标，其中精准匹配1/2/3是根据一下三种规则得到一个误差合理值或者误差合理范围，然后统计的分差在对应误差范围内的数据占比。规则如下：<br>
            <b>规则1：取题目最小得分点和该题目分值的10%两者之间的最小值；<br>
            规则2：分差的百分之95%分位数；<br>
@@ -528,18 +534,18 @@
            筛选条件3：战略中有错误类型包含“正确答案已经全部匹配”字样，暂时认定该题目模型打分和老师判分没分差；<br>
            筛选条件4：模型判分结果超过题目原始分值的统一修改为原始分值（判分规则不一致）。</b></p>
     </div>
-<div class="table-section">
-    <h3>小题层面</h3>
-    <label for="filter-compare_ques_acc">选择科目：</label>
-    <select id="filter-compare_ques_acc" class="subject-filter" multiple>
-        <option value="">全部科目</option>
-        <option value="会计">会计</option>
+        <div class="table-section">
+            <h3>小题层面</h3>
+            <label for="filter-compare_ques_acc">选择科目：</label>
+            <select id="filter-compare_ques_acc" class="subject-filter" multiple>
+                <option value="">全部科目</option>
+                <option value="会计">会计</option>
 <option value="战略">战略</option>
 <option value="税法">税法</option>
 <option value="经济法">经济法</option>
 <option value="财管">财管</option>
-    </select>
-    
+            </select>
+            
     <style>
         th, td { text-align: center; padding: 6px; }
         th { border-bottom: 2px solid black; }
@@ -631,20 +637,20 @@
         </tbody>
     </table>
     
-</div>
-
-<div class="table-section">
-    <h3>大题层面</h3>
-    <label for="filter-compare_group_acc">选择科目：</label>
-    <select id="filter-compare_group_acc" class="subject-filter" multiple>
-        <option value="">全部科目</option>
-        <option value="会计">会计</option>
+        </div>
+        
+        <div class="table-section">
+            <h3>大题层面</h3>
+            <label for="filter-compare_group_acc">选择科目：</label>
+            <select id="filter-compare_group_acc" class="subject-filter" multiple>
+                <option value="">全部科目</option>
+                <option value="会计">会计</option>
 <option value="战略">战略</option>
 <option value="税法">税法</option>
 <option value="经济法">经济法</option>
 <option value="财管">财管</option>
-    </select>
-    
+            </select>
+            
     <style>
         th, td { text-align: center; padding: 6px; }
         th { border-bottom: 2px solid black; }
@@ -736,22 +742,22 @@
         </tbody>
     </table>
     
-</div>
-<h2 id='score_level_desc'>分数段层面准确率</h2><div class="description">
+        </div>
+        <h2 id='score_level_desc'>分数段层面准确率</h2><div class="description">
         <p>下方表格呈现的是不同分数段水平上各科目准确性指标结果。</p>
     </div>
-<div class="table-section">
-    <h3>分数段层面（小题层面统计）</h3>
-    <label for="filter-compare_level_acc">选择科目：</label>
-    <select id="filter-compare_level_acc" class="subject-filter" multiple>
-        <option value="">全部科目</option>
-        <option value="会计">会计</option>
+        <div class="table-section">
+            <h3>分数段层面（小题层面统计）</h3>
+            <label for="filter-compare_level_acc">选择科目：</label>
+            <select id="filter-compare_level_acc" class="subject-filter" multiple>
+                <option value="">全部科目</option>
+                <option value="会计">会计</option>
 <option value="战略">战略</option>
 <option value="税法">税法</option>
 <option value="经济法">经济法</option>
 <option value="财管">财管</option>
-    </select>
-    
+            </select>
+            
     <style>
         th, td { text-align: center; padding: 6px; }
         th { border-bottom: 2px solid black; }
@@ -975,22 +981,22 @@
         </tbody>
     </table>
     
-</div>
-<h2 id='ques_type_desc'>题型层面准确率</h2><div class="description">
+        </div>
+        <h2 id='ques_type_desc'>题型层面准确率</h2><div class="description">
         <p>下方表格呈现的是从各科目的题型层面来看每个题型下准确率情况、分差来源分布情况。</p>
     </div>
-<div class="table-section">
-    <h3>题型层面打分情况描述（小题层面统计）</h3>
-    <label for="filter-compare_ques_type_stats">选择科目：</label>
-    <select id="filter-compare_ques_type_stats" class="subject-filter" multiple>
-        <option value="">全部科目</option>
-        <option value="会计">会计</option>
+        <div class="table-section">
+            <h3>题型层面打分情况描述（小题层面统计）</h3>
+            <label for="filter-compare_ques_type_stats">选择科目：</label>
+            <select id="filter-compare_ques_type_stats" class="subject-filter" multiple>
+                <option value="">全部科目</option>
+                <option value="会计">会计</option>
 <option value="战略">战略</option>
 <option value="税法">税法</option>
 <option value="经济法">经济法</option>
 <option value="财管">财管</option>
-    </select>
-    
+            </select>
+            
     <style>
         th, td { text-align: center; padding: 6px; }
         th { border-bottom: 2px solid black; }
@@ -1318,8 +1324,8 @@
         </tbody>
     </table>
     
-</div>
-<h2 id='final_desc'>最终准确率结果（小题层面）</h2><div class="description">
+        </div>
+        <h2 id='final_desc'>最终准确率结果（小题层面）</h2><div class="description">
         <p>以下结果是展示的每个科目最新版数据在经过数据清洗后得到的完全匹配和精准匹配1结果，老师误判是根据各科目给到的一些规则对精准匹配范围外的数据进行统计得到的结果。<br>
         <b>最终准确率可参考：精准匹配1比例 + 老师误判(程序筛选+人工筛选)比例 。</b><br>
            税法误判情况1：题型为纯计算的题，统一认为模型判分没问题；<br>
@@ -1329,18 +1335,18 @@
            财管误判情况2：题型为纯计算的题，统一认为模型判分没问题；<br>
            财管误判情况3：题型为观点+计算且模型判0分老师给分，认为这类题老师给的是步骤分，模型暂时不给步骤分，暂定模型判分无误。</p>
     </div>
-<div class="table-section">
-    <h3>小题层面</h3>
-    <label for="filter-final_acc_res">选择科目：</label>
-    <select id="filter-final_acc_res" class="subject-filter" multiple>
-        <option value="">全部科目</option>
-        <option value="会计">会计</option>
+        <div class="table-section">
+            <h3>小题层面</h3>
+            <label for="filter-final_acc_res">选择科目：</label>
+            <select id="filter-final_acc_res" class="subject-filter" multiple>
+                <option value="">全部科目</option>
+                <option value="会计">会计</option>
 <option value="战略">战略</option>
 <option value="税法">税法</option>
 <option value="经济法">经济法</option>
 <option value="财管">财管</option>
-    </select>
-    
+            </select>
+            
     <style>
         th, td { text-align: center; padding: 6px; }
         th { border-bottom: 2px solid black; }
@@ -1432,8 +1438,96 @@
         </tbody>
     </table>
     
-</div>
-<h2 id='fig-section'>不同条件下两者打分对比</h2><img src="fig_score_dist_by_paper.png" alt="图表"><img src="fig_score_dist_by_question_score.png" alt="图表"><img src="fig_score_dist_by_question_type.png" alt="图表">
+        </div>
+        
+    <h2 id="model_accuracy">模型准确率--专家评分对比结果</h2>
+    <div class="table-section">
+        <p>该部分展示各科目模型评分与专家评分的一致性分析结果。其中相关指标释义如下：</p>
+        精确一致率：模型评分与专家评分<b>分差为0</b>的比例。<br>
+        相邻一致率：模型评分与专家评分<b>分差范围小于0.5分</b>的比例；<br>
+        皮尔逊相关系数：衡量模型打分与专家打分在整体趋势上的一致性。一般来说，系数大于0.6表示强相关，小于0.3表示弱相关或不相关；<br>
+        95%的置信区间：反应了估计的相关系数的不确定性，区间越宽越不确定。比如区间结果为[0.3,0.7]可以理解成：我们有比较强的信心（95%的信心）认为，模型和专家打分的真实一致性，不会比 0.3更差，也不会比 0.7更好；<br>
+        平均绝对误差：衡量模型打分与专家打分在数值上的平均偏差（即相对专家评分来说，模型平均打偏了多少分）。</p>
+        
+        <!-- 共用筛选器 -->
+        <div class="filter-controls">
+            <div class="filter-group">
+                <label for="filter-model-accuracy">筛选科目：</label>
+                <select id="filter-model-accuracy" class="subject-filter" multiple="multiple">
+                    <option value="all">全部科目</option>
+    <option value="经济法">经济法</option><option value="战略">战略</option>
+                </select>
+            </div>
+        </div>
+    
+        <div class="table-section">
+            <h3>总体一致性评估结果</h3>
+            
+    <style>
+        th, td { text-align: center; padding: 6px; }
+        th { border-bottom: 2px solid black; }
+        .subject-end td { border-bottom: 2px solid #333; }  /* 科目分组的最后一行加粗下边框 */
+        table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+    </style>
+    <table id="overall-table">
+        <thead>
+            <tr><th>科目名称</th><th>样本量</th><th>精确一致率</th><th>相邻一致率</th><th>模型偏高比例</th><th>模型偏低比例</th><th>皮尔逊相关系数</th><th>95%置信区间</th><th>平均绝对误差</th></tr>
+        </thead>
+        <tbody>
+    
+            <tr class="subject-end" data-subject="经济法">
+                <td>经济法</td><td>60</td><td>61.67%</td><td>61.67%</td><td>6.67%</td><td>31.67%</td><td>0.567</td><td>[0.366, 0.718]</td><td>0.550</td>
+            </tr>
+        
+            <tr class="subject-end" data-subject="战略">
+                <td>战略</td><td>30</td><td>20.00%</td><td>66.67%</td><td>33.33%</td><td>46.67%</td><td>0.634</td><td>[0.355, 0.809]</td><td>0.575</td>
+            </tr>
+        
+        </tbody>
+    </table>
+    
+        </div>
+        
+        <div class="table-section">
+            <h3>题型评估</h3>
+            
+    <style>
+        th, td { text-align: center; padding: 6px; }
+        th { border-bottom: 2px solid black; }
+        .subject-end td { border-bottom: 2px solid #333; }  /* 科目分组的最后一行加粗下边框 */
+        table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+    </style>
+    <table id="question-type-table">
+        <thead>
+            <tr><th>科目名称</th><th>题型</th><th>样本量</th><th>精确一致率</th><th>相邻一致率</th><th>模型偏高比例</th><th>模型偏低比例</th><th>平均绝对误差</th></tr>
+        </thead>
+        <tbody>
+    
+            <tr class="" data-subject="经济法">
+                <td>经济法</td><td>观点+理由</td><td>30</td><td>73.33%</td><td>73.33%</td><td>20.00%</td><td>6.67%</td><td>0.367</td>
+            </tr>
+        
+            <tr class="subject-end" data-subject="经济法">
+                <td></td><td>文本</td><td>30</td><td>50.00%</td><td>50.00%</td><td>43.33%</td><td>6.67%</td><td>0.733</td>
+            </tr>
+        
+            <tr class="subject-end" data-subject="战略">
+                <td>战略</td><td>知识点和材料</td><td>30</td><td>20.00%</td><td>66.67%</td><td>46.67%</td><td>33.33%</td><td>0.575</td>
+            </tr>
+        
+        </tbody>
+    </table>
+    
+        </div>
+        
+    <div class="table-section">
+        <h3>各科目模型打分 vs 专家评分散点图</h3>
+        <p>下图展示了各科目模型打分与专家评分的对比情况：</p>
+        <img src="model_vs_expert_scatter.png" alt="模型打分 vs 专家评分散点图" style="max-width: 100%; height: auto;">
+    </div>
+    
+    </div>
+    
 <!-- 引入 jQuery 和 Select2 -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -1450,26 +1544,39 @@ $(document).ready(function () {
         });
     });
 
-    // 绑定 change 事件
-    $(document).on('change', '.subject-filter', function () {
+    // 共用筛选框的 change 事件
+    $(document).on('change', '#filter-model-accuracy', function () {
         const selectedSubjects = $(this).val(); // 获取选中的值数组
-        const tableId = this.id.replace('filter-', '');
-        const table = document.getElementById(tableId);
-
-        if (!table) {
-            console.error(`Table with id ${tableId} not found`);
-            return;
-        }
-
-        const rows = table.querySelectorAll('tbody tr');
-        rows.forEach(row => {
-            const subject = row.getAttribute('data-subject');
-
-            if (!selectedSubjects || selectedSubjects.length === 0 || !subject || selectedSubjects.includes(subject)) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
+        
+        // 定义所有需要筛选的表格ID
+        const tableIds = [
+            'overall-table', 
+            'question-type-table', 
+            'large-score-table', 
+            'small-score-table'
+        ];
+        
+        // 对每个表格应用筛选
+        tableIds.forEach(tableId => {
+            const table = document.getElementById(tableId);
+            if (!table) {
+                console.error(`Table with id ${tableId} not found`);
+                return;
             }
+
+            const rows = table.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                const subject = row.getAttribute('data-subject');
+
+                if (!selectedSubjects || 
+                    selectedSubjects.length === 0 || 
+                    selectedSubjects.includes('all') ||
+                    selectedSubjects.includes(subject)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
         });
     });
 });
