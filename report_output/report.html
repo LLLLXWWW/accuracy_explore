@@ -6,25 +6,34 @@
     <title>主观题评分误差分析报告</title>
     <style>
         body { 
-            font-family: "Microsoft YaHei", 
-            sans-serif; 
+            font-family: "Microsoft YaHei", sans-serif;
             padding: 40px 40px 40px 220px;
-            line-height: 1.6; 
-            box-sizing: border-box; /* 确保padding不会增加元素的实际宽度或高度 */
+            line-height: 1.6;
+            box-sizing: border-box;
             position: relative;
         }
         h1 { margin-top: 0; }
         h2 { 
             margin-top: 40px; 
             padding-top: 20px; 
-            scroll-margin-top: 120px; /* 防止目录遮挡 */
+            scroll-margin-top: 120px;
         }
-        img { max-width: 100%; height: auto; margin: 20px 0; border: 1px solid #ddd; }
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 20px 0; 
+            border: 1px solid #ddd; 
+        }
         label { margin-right: 10px; }
-        select.subject-filter { padding: 5px; font-size: 14px; }
-        .table-section { margin-bottom: 30px; }
-        
-        /* 新增目录样式 - 简洁不突兀 */
+        select.subject-filter { 
+            padding: 5px; 
+            font-size: 14px; 
+        }
+        .table-section { 
+            margin-bottom: 30px; 
+        }
+
+        /* 目录样式 */
         .toc-wrapper {
             position: fixed;
             left: 10px;
@@ -38,24 +47,18 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             z-index: 100;
         }
-        
         .toc-title {
             font-size: 15px;
             font-weight: bold;
             margin-bottom: 10px;
             color: #333;
         }
-        
         .toc-nav ul {
             list-style: none;
             padding-left: 0;
             margin: 0;
         }
-        
-        .toc-nav li {
-            margin-bottom: 6px;
-        }
-        
+        .toc-nav li { margin-bottom: 6px; }
         .toc-nav a {
             display: block;
             padding: 4px 8px;
@@ -65,60 +68,83 @@
             border-left: 3px solid transparent;
             transition: all 0.2s;
         }
-        
-        .toc-nav a:hover {
+        .toc-nav a:hover,
+        .toc-nav a.active {
             color: #1a73e8;
             border-left-color: #1a73e8;
         }
-        
         .toc-nav a.active {
-            color: #1a73e8;
             font-weight: bold;
-            border-left-color: #1a73e8;
             background: rgba(26,115,232,0.05);
         }
 
-        /* 表格基础样式增强 */
-        .table th {
-            border-bottom: 2px solid #333; /* 表头底部加粗边框 */
+        /* 通用表格样式 */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .data-table th,
+        .data-table td {
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .data-table th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            border-bottom: 2px solid #333;
+        }
+        .data-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .data-table tr:hover {
+            background-color: #e9f7e9;
         }
 
-        .subject-calibration-section {
-            margin: 30px 0;
-            padding: 20px;
+        /* 筛选控件样式 */
+        .filter-controls {
+            display: flex;
+            gap: 30px;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        .filter-group {
+            display: flex;
+            align-items: center;
+        }
+        .filter-group label {
+            font-weight: bold;
+            margin-right: 10px;
+            min-width: 80px;
+        }
+
+        /* 条形图容器样式 */
+        .barchart-item {
+            flex: 1 1 calc(33.333% - 20px);
+            min-width: 300px;
+            padding: 15px;
             border: 1px solid #e0e0e0;
             border-radius: 8px;
-            background-color: #f9f9f9;
-        }
-
-        .calibration-visualization {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .wordcloud-section {
-            flex: 1;
-            text-align: center;
-            padding: 15px;
             background: white;
-            border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-
-        .calibration-stats {
-            display: flex;
-            gap: 20px;
+        .chart-section {
+            text-align: center;
         }
-
-        .stats-section {
-            flex: 1;
-        }
-
-        .stats-section h5 {
+        .chart-section h5 {
+            margin: 0 0 10px 0;
             color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 5px;
+            font-size: 16px;
+        }
+        .chart-section p {
+            margin: 0 0 15px 0;
+            color: #666;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -127,6 +153,7 @@
     <p>本报告汇总了模型评分与教师评分在多个维度下的误差统计分析，包括不同试卷、题型、分值下的分布可视化和一致性对比。</p>
     
     <div class="toc-wrapper">
+        <div class="toc-title">目录</div>
         <nav class="toc-nav">
             <ul>
                 <li><a href="#base_desc">试卷基本情况描述统计</a></li>
@@ -136,6 +163,7 @@
                 <li><a href="#ques_type_desc">题型层面准确率</a></li>
                 <li><a href="#final_desc">最终准确率结果(小题层面, 和VIP老师评分结果对比)</a></li>
                 <li><a href="#model_accuracy">模型准确率--专家评分对比结果</a></li>
+                <li><a href="#expert_details">专家标注内容统计</a></li>
             </ul>
         </nav>
     </div>
@@ -1491,7 +1519,7 @@
             <div class="filter-group">
                 <label for="filter-model-accuracy">筛选科目：</label>
                 <select id="filter-model-accuracy" class="subject-filter" multiple="multiple">
-                    <option value="all">全部科目</option>
+                    <option value="">全部科目</option>
     <option value="税法">税法</option><option value="经济法">经济法</option><option value="财管">财管</option><option value="战略">战略</option>
                 </select>
             </div>
@@ -1633,6 +1661,188 @@
     
     </div>
     
+    <h2 id="expert_details">专家标注内容统计</h2>
+    
+    <div class="table-section">
+        <h3>标注数据占比统计</h3>
+        <p>本部分展示专家标注记录的占比情况。</p>
+        <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>科目名称</th>
+      <th>总记录数</th>
+      <th>无标注记录</th>
+      <th>有标注记录</th>
+      <th>模型偏高记录</th>
+      <th>模型偏低记录</th>
+      <th>打分一致记录</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>税法</td>
+      <td>120</td>
+      <td>57 (47.5%)</td>
+      <td>63 (52.5%)</td>
+      <td>10 (15.9%)</td>
+      <td>34 (54.0%)</td>
+      <td>19 (30.2%)</td>
+    </tr>
+    <tr>
+      <td>经济法</td>
+      <td>60</td>
+      <td>25 (41.7%)</td>
+      <td>35 (58.3%)</td>
+      <td>19 (54.3%)</td>
+      <td>4 (11.4%)</td>
+      <td>12 (34.3%)</td>
+    </tr>
+    <tr>
+      <td>财管</td>
+      <td>180</td>
+      <td>87 (48.3%)</td>
+      <td>93 (51.7%)</td>
+      <td>37 (39.8%)</td>
+      <td>50 (53.8%)</td>
+      <td>6 (6.5%)</td>
+    </tr>
+    <tr>
+      <td>战略</td>
+      <td>30</td>
+      <td>1 (3.3%)</td>
+      <td>29 (96.7%)</td>
+      <td>14 (48.3%)</td>
+      <td>10 (34.5%)</td>
+      <td>5 (17.2%)</td>
+    </tr>
+  </tbody>
+</table>
+        <p><small>注：数量(占比) 格式，占比基于有标注记录数计算（无标注记录除外）</small></p>
+    </div>
+    
+    <div class="table-section">
+        <h3>专家标注分布分析</h3>
+        <p>本节通过条形图展示各类标注原因的分布情况，包含出现次数、占比和平均调整分值。</p>
+        
+        <!-- 双重筛选控件 -->
+        <div class="filter-controls">
+            <div class="filter-group">
+                <label for="filter-barchart-subject">筛选科目：</label>
+                <select id="filter-barchart-subject" class="subject-filter" multiple>
+                    <option value="all" selected>全部科目</option>
+                    <option value="税法">税法</option><option value="经济法">经济法</option><option value="财管">财管</option><option value="战略">战略</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-barchart-category">筛选类别：</label>
+                <select id="filter-barchart-category" class="category-filter" multiple>
+                    <option value="all" selected>全部类别</option>
+                    <option value="模型打分偏高">模型打分偏高</option><option value="模型打分偏低">模型打分偏低</option><option value="打分一致">打分一致</option>
+                </select>
+            </div>
+        </div>
+        
+        <div id="barchart-container">
+            
+                <div class="barchart-item" data-subject="税法" data-category="模型打分偏高">
+                    <div class="chart-section">
+                        <h5>税法 - 模型打分偏高</h5>
+                        <p>记录数: 10 | 标注数: 10</p>
+                        <img src="税法_high_model_barchart.png" alt="税法模型打分偏高标注分布" style="width: 100%; height: auto;">
+                    </div>
+                </div>
+                
+                <div class="barchart-item" data-subject="税法" data-category="模型打分偏低">
+                    <div class="chart-section">
+                        <h5>税法 - 模型打分偏低</h5>
+                        <p>记录数: 34 | 标注数: 37</p>
+                        <img src="税法_low_model_barchart.png" alt="税法模型打分偏低标注分布" style="width: 100%; height: auto;">
+                    </div>
+                </div>
+                
+                <div class="barchart-item" data-subject="税法" data-category="打分一致">
+                    <div class="chart-section">
+                        <h5>税法 - 打分一致</h5>
+                        <p>记录数: 19 | 标注数: 25</p>
+                        <img src="税法_consistent_barchart.png" alt="税法打分一致标注分布" style="width: 100%; height: auto;">
+                    </div>
+                </div>
+                
+                <div class="barchart-item" data-subject="经济法" data-category="模型打分偏高">
+                    <div class="chart-section">
+                        <h5>经济法 - 模型打分偏高</h5>
+                        <p>记录数: 19 | 标注数: 19</p>
+                        <img src="经济法_high_model_barchart.png" alt="经济法模型打分偏高标注分布" style="width: 100%; height: auto;">
+                    </div>
+                </div>
+                
+                <div class="barchart-item" data-subject="经济法" data-category="模型打分偏低">
+                    <div class="chart-section">
+                        <h5>经济法 - 模型打分偏低</h5>
+                        <p>记录数: 4 | 标注数: 4</p>
+                        <img src="经济法_low_model_barchart.png" alt="经济法模型打分偏低标注分布" style="width: 100%; height: auto;">
+                    </div>
+                </div>
+                
+                <div class="barchart-item" data-subject="经济法" data-category="打分一致">
+                    <div class="chart-section">
+                        <h5>经济法 - 打分一致</h5>
+                        <p>记录数: 12 | 标注数: 12</p>
+                        <img src="经济法_consistent_barchart.png" alt="经济法打分一致标注分布" style="width: 100%; height: auto;">
+                    </div>
+                </div>
+                
+                <div class="barchart-item" data-subject="财管" data-category="模型打分偏高">
+                    <div class="chart-section">
+                        <h5>财管 - 模型打分偏高</h5>
+                        <p>记录数: 37 | 标注数: 42</p>
+                        <img src="财管_high_model_barchart.png" alt="财管模型打分偏高标注分布" style="width: 100%; height: auto;">
+                    </div>
+                </div>
+                
+                <div class="barchart-item" data-subject="财管" data-category="模型打分偏低">
+                    <div class="chart-section">
+                        <h5>财管 - 模型打分偏低</h5>
+                        <p>记录数: 50 | 标注数: 80</p>
+                        <img src="财管_low_model_barchart.png" alt="财管模型打分偏低标注分布" style="width: 100%; height: auto;">
+                    </div>
+                </div>
+                
+                <div class="barchart-item" data-subject="财管" data-category="打分一致">
+                    <div class="chart-section">
+                        <h5>财管 - 打分一致</h5>
+                        <p>记录数: 6 | 标注数: 11</p>
+                        <img src="财管_consistent_barchart.png" alt="财管打分一致标注分布" style="width: 100%; height: auto;">
+                    </div>
+                </div>
+                
+                <div class="barchart-item" data-subject="战略" data-category="模型打分偏高">
+                    <div class="chart-section">
+                        <h5>战略 - 模型打分偏高</h5>
+                        <p>记录数: 14 | 标注数: 51</p>
+                        <img src="战略_high_model_barchart.png" alt="战略模型打分偏高标注分布" style="width: 100%; height: auto;">
+                    </div>
+                </div>
+                
+                <div class="barchart-item" data-subject="战略" data-category="模型打分偏低">
+                    <div class="chart-section">
+                        <h5>战略 - 模型打分偏低</h5>
+                        <p>记录数: 10 | 标注数: 28</p>
+                        <img src="战略_low_model_barchart.png" alt="战略模型打分偏低标注分布" style="width: 100%; height: auto;">
+                    </div>
+                </div>
+                
+                <div class="barchart-item" data-subject="战略" data-category="打分一致">
+                    <div class="chart-section">
+                        <h5>战略 - 打分一致</h5>
+                        <p>记录数: 5 | 标注数: 22</p>
+                        <img src="战略_consistent_barchart.png" alt="战略打分一致标注分布" style="width: 100%; height: auto;">
+                    </div>
+                </div>
+                
+        </div>
+    </div>
+    
 <!-- 引入 jQuery 和 Select2 -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -1649,9 +1859,35 @@ $(document).ready(function () {
         });
     });
 
-    // 共用筛选框的 change 事件
+    // 1. 处理前面表格的筛选框（每个表格独立的筛选框）
+    $(document).on('change', '.subject-filter:not(#filter-model-accuracy)', function () {
+        const selectedSubjects = $(this).val();
+        const tableId = this.id.replace('filter-', '');
+        const table = document.getElementById(tableId);
+
+        if (!table) {
+            console.error(`Table with id ${tableId} not found`);
+            return;
+        }
+
+        const rows = table.querySelectorAll('tbody tr');
+        rows.forEach(row => {
+            const subject = row.getAttribute('data-subject');
+
+            if (!selectedSubjects || 
+                selectedSubjects.length === 0 || 
+                selectedSubjects.includes('all') ||
+                selectedSubjects.includes(subject)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    });
+
+    // 2. 处理模型准确率部分的共用筛选框
     $(document).on('change', '#filter-model-accuracy', function () {
-        const selectedSubjects = $(this).val(); // 获取选中的值数组
+        const selectedSubjects = $(this).val();
         
         // 定义所有需要筛选的表格ID
         const tableIds = [
@@ -1683,6 +1919,45 @@ $(document).ready(function () {
                 }
             });
         });
+    });
+
+    // 3. 初始化：触发所有筛选框的change事件，显示所有数据
+    $('.subject-filter').trigger('change');
+
+    // 4. 条形图双重筛选功能
+    function filterBarcharts() {
+        const selectedSubjects = $('#filter-barchart-subject').val() || [];
+        const selectedCategories = $('#filter-barchart-category').val() || [];
+        
+        $('.barchart-item').each(function() {
+            const subject = $(this).data('subject');
+            const category = $(this).data('category');
+            
+            // 判断是否显示
+            const showSubject = selectedSubjects.length === 0 || 
+                              selectedSubjects.includes('all') || 
+                              selectedSubjects.includes(subject);
+            
+            const showCategory = selectedCategories.length === 0 || 
+                               selectedCategories.includes('all') || 
+                               selectedCategories.includes(category);
+            
+            if (showSubject && showCategory) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+    }
+
+    // 绑定筛选事件
+    $('#filter-barchart-subject, #filter-barchart-category').on('change', filterBarcharts);
+    
+    // 初始化条形图筛选控件
+    $('#filter-barchart-subject, #filter-barchart-category').select2({
+        placeholder: "请选择筛选条件",
+        allowClear: true,
+        width: '200px'
     });
 });
 </script>
