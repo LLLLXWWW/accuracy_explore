@@ -146,6 +146,9 @@
             color: #666;
             font-size: 14px;
         }
+        .indent-text {
+            margin-left: 2em;
+        }
     </style>
 </head>
 <body>
@@ -588,17 +591,23 @@
     
         </div>
         <h2 id='acc_desc'>判分准确性各项指标</h2><div class="description">
-        <p>下方表格呈现的是从多个角度统计的模型判分准确性指标，其中精准匹配1/2/3是根据一下三种规则得到一个误差合理值或者误差合理范围，然后统计的分差在对应误差范围内的数据占比。规则如下：<br>
-           <b>规则1：取题目最小得分点和该题目分值的10%两者之间的最小值；<br>
-           规则2：分差的百分之95%分位数；<br>
-           规则3：获取分差均值和标准差，计算均值正负一个标准差范围。</b></p>
+        <p>下方表格呈现的是从多个角度统计的模型判分准确性指标，其中精准匹配1/2/3是根据一下三种规则得到一个误差合理值或者误差合理范围，然后统计的分差在对应误差范围内的数据占比。规则如下：
+            <div class="indent-text">
+                <b>规则1：</b>取题目最小得分点和该题目分值的10%两者之间的最小值；<br>
+                <b>规则2：</b>分差的百分之95%分位数；<br>
+                <b>规则3：</b>获取分差均值和标准差，计算均值正负一个标准差范围。
+            </div>
+        </p>
 
         <p>下方表格中呈现了两版数据的结果。一版是原始数据，一版是经过下述筛选条件对数据做清洗后的结果。<br>
-        黑色代表两版数据准确率没有差异，红色代表清洗后数据的准确率下降，绿色代表清洗后数据的准确率上升。<br>
-           <b>筛选条件1：图片题不支持，删除指定的图片题数据；<br>
-           筛选条件2：如果某个小题错误类型都是单位错误，暂时认定该题目模型打分和老师判分没分差；<br>
-           筛选条件3：战略中有错误类型包含“正确答案已经全部匹配”字样，暂时认定该题目模型打分和老师判分没分差；<br>
-           筛选条件4：模型判分结果超过题目原始分值的统一修改为原始分值（判分规则不一致）。</b></p>
+            <b>黑色代表两版数据准确率没有差异，红色代表清洗后数据的准确率下降，绿色代表清洗后数据的准确率上升。</b>计算准确率时数据清洗采用了如下规则：
+            <div class="indent-text">
+                筛选条件1：图片题不支持，删除指定的图片题数据；<br>
+                筛选条件2：如果某个小题错误类型都是单位错误，暂时认定该题目模型打分和老师判分没分差；<br>
+                筛选条件3：战略中有错误类型包含“正确答案已经全部匹配”字样，暂时认定该题目模型打分和老师判分没分差；<br>
+                筛选条件4：模型判分结果超过题目原始分值的统一修改为原始分值（判分规则不一致）。
+            </div>
+        </p>
     </div>
         <div class="table-section">
             <h3>小题层面</h3>
@@ -1392,14 +1401,16 @@
     
         </div>
         <h2 id='final_desc'>最终准确率结果（小题层面）</h2><div class="description">
-        <p>以下结果是展示的每个科目最新版数据在经过数据清洗后得到的完全匹配和精准匹配1结果，老师误判是根据各科目给到的一些规则对精准匹配范围外的数据进行统计得到的结果。<br>
-        <b>最终准确率可参考：精准匹配1比例 + 老师误判(程序筛选+人工筛选)比例 。</b><br>
-           税法误判情况1：题型为纯计算的题，统一认为模型判分没问题；<br>
-           经济法误判情况1：老师打满分，模型打分小于老师分且模型打分为1.5分，认为模型判分无误；<br>
-           经济法误判情况2：老师打分为题目分值的一半，模型打分为0.5分，认为模型判分无误；<br>
-           财管误判情况1：题型里面带"表格"的题，统一认为模型判分无误；<br>
-           财管误判情况2：题型为纯计算的题，统一认为模型判分没问题；<br>
-           财管误判情况3：题型为观点+计算且模型判0分老师给分，认为这类题老师给的是步骤分，模型暂时不给步骤分，暂定模型判分无误。</p>
+        <p>以下结果是展示的每个科目最新版数据在经过数据清洗后得到的完全匹配和精准匹配1结果，老师误判是根据各科目给到的一些规则对精准匹配范围外的数据进行统计得到的结果。<b>最终准确率可参考：精准匹配1比例 + 老师误判(程序筛选+人工筛选)比例 。</b>
+            <div class="indent-text">
+                税法误判情况1：题型为纯计算的题，统一认为模型判分没问题；<br>
+                经济法误判情况1：老师打满分，模型打分小于老师分且模型打分为1.5分，认为模型判分无误；<br>
+                经济法误判情况2：老师打分为题目分值的一半，模型打分为0.5分，认为模型判分无误；<br>
+                财管误判情况1：题型里面带"表格"的题，统一认为模型判分无误；<br>
+                财管误判情况2：题型为纯计算的题，统一认为模型判分没问题；<br>
+                财管误判情况3：题型为观点+计算且模型判0分老师给分，认为这类题老师给的是步骤分，模型暂时不给步骤分，暂定模型判分无误。
+            </div>
+        </p>
     </div>
         <div class="table-section">
             <h3>小题层面</h3>
@@ -1509,18 +1520,19 @@
     <h2 id="model_accuracy">模型准确率--专家评分对比结果</h2>
     <div class="table-section">
         <p>该部分展示各科目模型评分与专家评分的一致性分析结果。其中相关指标释义如下：</p>
-        精确一致率：模型评分与专家评分<b>分差为0</b>的比例。<br>
-        皮尔逊相关系数：衡量模型打分与专家打分在整体趋势上的一致性。一般来说，系数大于0.6表示强相关，小于0.3表示弱相关或不相关；<br>
-        95%的置信区间：反应了估计的相关系数的不确定性，区间越宽越不确定。比如区间结果为[0.3,0.7]可以理解成：我们有比较强的信心（95%的信心）认为，模型和专家打分的真实一致性，不会比 0.3更差，也不会比 0.7更好；<br>
-        平均绝对误差：衡量模型打分与专家打分在数值上的平均偏差（即相对专家评分来说，模型平均打偏了多少分）。</p>
-        
+         <p class="indent-text">
+            <b>精确一致率</b>：模型评分与专家评分<b>分差为0</b>的比例。<br>
+            皮尔逊相关系数：衡量模型打分与专家打分在整体趋势上的一致性。通常，系数大于0.6表示强相关，小于0.3表示弱/不相关；<br>
+            95%的置信区间：反应了估计的相关系数的不确定性，区间越宽越不确定。比如区间结果为[0.3,0.7]可以理解成：我们有比较强的信心（95%的信心）认为，模型和专家打分的真实一致性，不会比0.3更差，也不会比0.7更好；<br>
+            平均绝对误差：衡量模型打分与专家打分在数值上的平均偏差（即相对专家评分来说，模型平均打偏了多少分）。
+        </p>
         <!-- 共用筛选器 -->
         <div class="filter-controls">
             <div class="filter-group">
                 <label for="filter-model-accuracy">筛选科目：</label>
                 <select id="filter-model-accuracy" class="subject-filter" multiple="multiple">
                     <option value="">全部科目</option>
-    <option value="税法">税法</option><option value="经济法">经济法</option><option value="财管">财管</option><option value="战略">战略</option>
+    <option value="审计">审计</option><option value="税法">税法</option><option value="经济法">经济法</option><option value="财管">财管</option><option value="会计">会计</option><option value="战略">战略</option>
                 </select>
             </div>
         </div>
@@ -1536,24 +1548,32 @@
     </style>
     <table id="overall-table">
         <thead>
-            <tr><th>科目名称</th><th>样本量</th><th>精确一致率</th><th>模型偏高比例</th><th>模型偏低比例</th><th>皮尔逊相关系数</th><th>95%置信区间</th><th>平均绝对误差</th></tr>
+            <tr><th>科目名称</th><th>样本量</th><th>精确一致率</th><th>相邻一致率[±0.25]</th><th>相邻一致率[±0.5]</th><th>模型偏高比例</th><th>模型偏低比例</th><th>皮尔逊相关系数</th><th>95%置信区间</th><th>平均绝对误差</th></tr>
         </thead>
         <tbody>
     
+            <tr class="subject-end" data-subject="审计">
+                <td>审计</td><td>60</td><td>51.67%</td><td>58.33%</td><td>86.67%</td><td>41.67%</td><td>6.67%</td><td>0.978</td><td>[0.964, 0.987]</td><td>0.287</td>
+            </tr>
+        
             <tr class="subject-end" data-subject="税法">
-                <td>税法</td><td>120</td><td>63.33%</td><td>28.33%</td><td>8.33%</td><td>0.771</td><td>[0.687, 0.835]</td><td>0.240</td>
+                <td>税法</td><td>120</td><td>87.50%</td><td>88.33%</td><td>96.67%</td><td>4.17%</td><td>8.33%</td><td>0.888</td><td>[0.843, 0.921]</td><td>0.092</td>
             </tr>
         
             <tr class="subject-end" data-subject="经济法">
-                <td>经济法</td><td>60</td><td>61.67%</td><td>6.67%</td><td>31.67%</td><td>0.567</td><td>[0.366, 0.718]</td><td>0.550</td>
+                <td>经济法</td><td>60</td><td>65.00%</td><td>65.00%</td><td>65.00%</td><td>31.67%</td><td>3.33%</td><td>0.612</td><td>[0.424, 0.750]</td><td>0.517</td>
             </tr>
         
             <tr class="subject-end" data-subject="财管">
-                <td>财管</td><td>180</td><td>51.67%</td><td>27.78%</td><td>20.56%</td><td>0.920</td><td>[0.894, 0.940]</td><td>0.270</td>
+                <td>财管</td><td>180</td><td>78.89%</td><td>83.33%</td><td>96.67%</td><td>10.56%</td><td>10.56%</td><td>0.957</td><td>[0.943, 0.968]</td><td>0.130</td>
+            </tr>
+        
+            <tr class="subject-end" data-subject="会计">
+                <td>会计</td><td>182</td><td>70.33%</td><td>78.57%</td><td>87.91%</td><td>4.40%</td><td>25.27%</td><td>0.880</td><td>[0.842, 0.909]</td><td>0.243</td>
             </tr>
         
             <tr class="subject-end" data-subject="战略">
-                <td>战略</td><td>30</td><td>20.00%</td><td>33.33%</td><td>46.67%</td><td>0.634</td><td>[0.355, 0.809]</td><td>0.575</td>
+                <td>战略</td><td>30</td><td>30.00%</td><td>50.00%</td><td>66.67%</td><td>40.00%</td><td>30.00%</td><td>0.622</td><td>[0.337, 0.802]</td><td>0.600</td>
             </tr>
         
         </tbody>
@@ -1572,80 +1592,124 @@
     </style>
     <table id="question-type-table">
         <thead>
-            <tr><th>科目名称</th><th>题型</th><th>样本量</th><th>精确一致率</th><th>模型偏高比例</th><th>模型偏低比例</th><th>平均绝对误差</th></tr>
+            <tr><th>科目名称</th><th>题型</th><th>样本量</th><th>精确一致率</th><th>相邻一致率[±0.25]</th><th>相邻一致率[±0.5]</th><th>模型偏高比例</th><th>模型偏低比例</th><th>平均绝对误差</th></tr>
         </thead>
         <tbody>
     
-            <tr class="" data-subject="税法">
-                <td>税法</td><td>计算+文本</td><td>17</td><td>88.24%</td><td>0.00%</td><td>11.76%</td><td>0.059</td>
+            <tr class="" data-subject="审计">
+                <td>审计</td><td>观点+理由+认定</td><td>30</td><td>33.33%</td><td>40.00%</td><td>76.67%</td><td>56.67%</td><td>10.00%</td><td>0.425</td>
+            </tr>
+        
+            <tr class="subject-end" data-subject="审计">
+                <td></td><td>观点+理由</td><td>30</td><td>70.00%</td><td>76.67%</td><td>96.67%</td><td>26.67%</td><td>3.33%</td><td>0.150</td>
             </tr>
         
             <tr class="" data-subject="税法">
-                <td></td><td>观点+计算</td><td>17</td><td>94.12%</td><td>0.00%</td><td>5.88%</td><td>0.029</td>
+                <td>税法</td><td>计算+文本</td><td>17</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>0.00%</td><td>0.00%</td><td>0.000</td>
             </tr>
         
             <tr class="" data-subject="税法">
-                <td></td><td>文本</td><td>17</td><td>35.29%</td><td>58.82%</td><td>5.88%</td><td>0.382</td>
+                <td></td><td>观点+计算</td><td>17</td><td>64.71%</td><td>64.71%</td><td>100.00%</td><td>0.00%</td><td>35.29%</td><td>0.176</td>
             </tr>
         
             <tr class="" data-subject="税法">
-                <td></td><td>理由+计算</td><td>16</td><td>81.25%</td><td>0.00%</td><td>18.75%</td><td>0.156</td>
+                <td></td><td>文本</td><td>17</td><td>64.71%</td><td>70.59%</td><td>94.12%</td><td>23.53%</td><td>11.76%</td><td>0.176</td>
             </tr>
         
             <tr class="" data-subject="税法">
-                <td></td><td>计算</td><td>30</td><td>63.33%</td><td>0.00%</td><td>36.67%</td><td>0.092</td>
+                <td></td><td>理由+计算</td><td>16</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>0.00%</td><td>0.00%</td><td>0.000</td>
+            </tr>
+        
+            <tr class="" data-subject="税法">
+                <td></td><td>计算</td><td>30</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>0.00%</td><td>0.00%</td><td>0.000</td>
             </tr>
         
             <tr class="subject-end" data-subject="税法">
-                <td></td><td>观点+理由</td><td>23</td><td>30.43%</td><td>0.00%</td><td>69.57%</td><td>0.674</td>
+                <td></td><td>观点+理由</td><td>23</td><td>86.96%</td><td>86.96%</td><td>86.96%</td><td>4.35%</td><td>8.70%</td><td>0.217</td>
             </tr>
         
             <tr class="" data-subject="经济法">
-                <td>经济法</td><td>观点+理由</td><td>30</td><td>73.33%</td><td>20.00%</td><td>6.67%</td><td>0.367</td>
+                <td>经济法</td><td>观点+理由</td><td>30</td><td>73.33%</td><td>73.33%</td><td>73.33%</td><td>20.00%</td><td>6.67%</td><td>0.367</td>
             </tr>
         
             <tr class="subject-end" data-subject="经济法">
-                <td></td><td>文本</td><td>30</td><td>50.00%</td><td>43.33%</td><td>6.67%</td><td>0.733</td>
+                <td></td><td>文本</td><td>30</td><td>56.67%</td><td>56.67%</td><td>56.67%</td><td>43.33%</td><td>0.00%</td><td>0.667</td>
             </tr>
         
             <tr class="" data-subject="财管">
-                <td>财管</td><td>观点+计算</td><td>18</td><td>38.89%</td><td>0.00%</td><td>61.11%</td><td>0.569</td>
+                <td>财管</td><td>观点+计算</td><td>18</td><td>38.89%</td><td>44.44%</td><td>77.78%</td><td>0.00%</td><td>61.11%</td><td>0.569</td>
             </tr>
         
             <tr class="" data-subject="财管">
-                <td></td><td>观点+表格</td><td>17</td><td>23.53%</td><td>0.00%</td><td>76.47%</td><td>0.735</td>
+                <td></td><td>观点+表格</td><td>17</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>0.00%</td><td>0.00%</td><td>0.000</td>
             </tr>
         
             <tr class="" data-subject="财管">
-                <td></td><td>观点+理由</td><td>17</td><td>70.59%</td><td>0.00%</td><td>29.41%</td><td>0.176</td>
+                <td></td><td>观点+理由</td><td>17</td><td>70.59%</td><td>70.59%</td><td>94.12%</td><td>0.00%</td><td>29.41%</td><td>0.176</td>
             </tr>
         
             <tr class="" data-subject="财管">
-                <td></td><td>计算+文本</td><td>17</td><td>70.59%</td><td>5.88%</td><td>23.53%</td><td>0.206</td>
+                <td></td><td>计算+文本</td><td>17</td><td>94.12%</td><td>94.12%</td><td>94.12%</td><td>5.88%</td><td>0.00%</td><td>0.088</td>
             </tr>
         
             <tr class="" data-subject="财管">
-                <td></td><td>观点</td><td>17</td><td>94.12%</td><td>5.88%</td><td>0.00%</td><td>0.029</td>
+                <td></td><td>观点</td><td>17</td><td>94.12%</td><td>94.12%</td><td>100.00%</td><td>5.88%</td><td>0.00%</td><td>0.029</td>
             </tr>
         
             <tr class="" data-subject="财管">
-                <td></td><td>表格</td><td>30</td><td>36.67%</td><td>60.00%</td><td>3.33%</td><td>0.169</td>
+                <td></td><td>表格</td><td>30</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>0.00%</td><td>0.00%</td><td>0.000</td>
             </tr>
         
             <tr class="" data-subject="财管">
-                <td></td><td>文本</td><td>17</td><td>41.18%</td><td>52.94%</td><td>5.88%</td><td>0.271</td>
+                <td></td><td>文本</td><td>17</td><td>41.18%</td><td>47.06%</td><td>100.00%</td><td>52.94%</td><td>5.88%</td><td>0.271</td>
             </tr>
         
             <tr class="" data-subject="财管">
-                <td></td><td>观点+理由+计算</td><td>17</td><td>94.12%</td><td>0.00%</td><td>5.88%</td><td>0.029</td>
+                <td></td><td>观点+理由+计算</td><td>17</td><td>94.12%</td><td>94.12%</td><td>100.00%</td><td>0.00%</td><td>5.88%</td><td>0.029</td>
             </tr>
         
             <tr class="subject-end" data-subject="财管">
-                <td></td><td>计算</td><td>30</td><td>26.67%</td><td>26.67%</td><td>46.67%</td><td>0.292</td>
+                <td></td><td>计算</td><td>30</td><td>70.00%</td><td>90.00%</td><td>100.00%</td><td>26.67%</td><td>3.33%</td><td>0.100</td>
+            </tr>
+        
+            <tr class="" data-subject="会计">
+                <td>会计</td><td>观点+理由+分录</td><td>18</td><td>22.22%</td><td>66.67%</td><td>100.00%</td><td>5.56%</td><td>72.22%</td><td>0.278</td>
+            </tr>
+        
+            <tr class="" data-subject="会计">
+                <td></td><td>计算+文本</td><td>18</td><td>77.78%</td><td>77.78%</td><td>77.78%</td><td>22.22%</td><td>0.00%</td><td>0.222</td>
+            </tr>
+        
+            <tr class="" data-subject="会计">
+                <td></td><td>分录</td><td>19</td><td>52.63%</td><td>52.63%</td><td>68.42%</td><td>0.00%</td><td>47.37%</td><td>0.816</td>
+            </tr>
+        
+            <tr class="" data-subject="会计">
+                <td></td><td>计算+分录</td><td>30</td><td>86.67%</td><td>86.67%</td><td>86.67%</td><td>0.00%</td><td>13.33%</td><td>0.167</td>
+            </tr>
+        
+            <tr class="" data-subject="会计">
+                <td></td><td>观点+理由+计算+分录</td><td>19</td><td>68.42%</td><td>68.42%</td><td>89.47%</td><td>0.00%</td><td>31.58%</td><td>0.211</td>
+            </tr>
+        
+            <tr class="" data-subject="会计">
+                <td></td><td>文本</td><td>18</td><td>66.67%</td><td>94.44%</td><td>100.00%</td><td>11.11%</td><td>22.22%</td><td>0.097</td>
+            </tr>
+        
+            <tr class="" data-subject="会计">
+                <td></td><td>计算+文本+分录</td><td>21</td><td>61.90%</td><td>71.43%</td><td>76.19%</td><td>4.76%</td><td>33.33%</td><td>0.333</td>
+            </tr>
+        
+            <tr class="" data-subject="会计">
+                <td></td><td>观点+理由</td><td>18</td><td>83.33%</td><td>83.33%</td><td>94.44%</td><td>0.00%</td><td>16.67%</td><td>0.111</td>
+            </tr>
+        
+            <tr class="subject-end" data-subject="会计">
+                <td></td><td>计算</td><td>21</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>0.00%</td><td>0.00%</td><td>0.000</td>
             </tr>
         
             <tr class="subject-end" data-subject="战略">
-                <td>战略</td><td>知识点和材料</td><td>30</td><td>20.00%</td><td>46.67%</td><td>33.33%</td><td>0.575</td>
+                <td>战略</td><td>知识点和材料</td><td>30</td><td>30.00%</td><td>50.00%</td><td>66.67%</td><td>40.00%</td><td>30.00%</td><td>0.600</td>
             </tr>
         
         </tbody>
@@ -1680,13 +1744,22 @@
   </thead>
   <tbody>
     <tr>
+      <td>审计</td>
+      <td>60</td>
+      <td>22 (36.7%)</td>
+      <td>38 (63.3%)</td>
+      <td>25 (65.8%)</td>
+      <td>4 (10.5%)</td>
+      <td>9 (23.7%)</td>
+    </tr>
+    <tr>
       <td>税法</td>
       <td>120</td>
       <td>57 (47.5%)</td>
       <td>63 (52.5%)</td>
-      <td>10 (15.9%)</td>
-      <td>34 (54.0%)</td>
-      <td>19 (30.2%)</td>
+      <td>4 (6.3%)</td>
+      <td>5 (7.9%)</td>
+      <td>54 (85.7%)</td>
     </tr>
     <tr>
       <td>经济法</td>
@@ -1694,30 +1767,38 @@
       <td>25 (41.7%)</td>
       <td>35 (58.3%)</td>
       <td>19 (54.3%)</td>
-      <td>4 (11.4%)</td>
-      <td>12 (34.3%)</td>
+      <td>2 (5.7%)</td>
+      <td>14 (40.0%)</td>
     </tr>
     <tr>
       <td>财管</td>
       <td>180</td>
       <td>87 (48.3%)</td>
       <td>93 (51.7%)</td>
-      <td>37 (39.8%)</td>
-      <td>50 (53.8%)</td>
-      <td>6 (6.5%)</td>
+      <td>19 (20.4%)</td>
+      <td>19 (20.4%)</td>
+      <td>55 (59.1%)</td>
+    </tr>
+    <tr>
+      <td>会计</td>
+      <td>182</td>
+      <td>124 (68.1%)</td>
+      <td>58 (31.9%)</td>
+      <td>8 (13.8%)</td>
+      <td>46 (79.3%)</td>
+      <td>4 (6.9%)</td>
     </tr>
     <tr>
       <td>战略</td>
       <td>30</td>
       <td>1 (3.3%)</td>
       <td>29 (96.7%)</td>
-      <td>14 (48.3%)</td>
-      <td>10 (34.5%)</td>
-      <td>5 (17.2%)</td>
+      <td>12 (41.4%)</td>
+      <td>9 (31.0%)</td>
+      <td>8 (27.6%)</td>
     </tr>
   </tbody>
 </table>
-        <p><small>注：数量(占比) 格式，占比基于有标注记录数计算（无标注记录除外）</small></p>
     </div>
     
     <div class="table-section">
@@ -1730,7 +1811,7 @@
                 <label for="filter-barchart-subject">筛选科目：</label>
                 <select id="filter-barchart-subject" class="subject-filter" multiple>
                     <option value="all" selected>全部科目</option>
-                    <option value="税法">税法</option><option value="经济法">经济法</option><option value="财管">财管</option><option value="战略">战略</option>
+                    <option value="审计">审计</option><option value="税法">税法</option><option value="经济法">经济法</option><option value="财管">财管</option><option value="会计">会计</option><option value="战略">战略</option>
                 </select>
             </div>
             <div class="filter-group">
@@ -1744,99 +1825,201 @@
         
         <div id="barchart-container">
             
+                <div class="barchart-item" data-subject="审计" data-category="模型打分偏高">
+                    <div class="chart-section">
+                        <h5>审计 - 模型打分偏高</h5>
+                        <p class="chart-stats">记录数: 25 | 标注数: 41</p>
+                        <div class="chart-scroll-container">
+                            <img src="审计_high_model_smart.png" alt="审计模型打分偏高标注分布" 
+                                 class="scrollable-chart">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="barchart-item" data-subject="审计" data-category="模型打分偏低">
+                    <div class="chart-section">
+                        <h5>审计 - 模型打分偏低</h5>
+                        <p class="chart-stats">记录数: 4 | 标注数: 10</p>
+                        <div class="chart-scroll-container">
+                            <img src="审计_low_model_smart.png" alt="审计模型打分偏低标注分布" 
+                                 class="scrollable-chart">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="barchart-item" data-subject="审计" data-category="打分一致">
+                    <div class="chart-section">
+                        <h5>审计 - 打分一致</h5>
+                        <p class="chart-stats">记录数: 9 | 标注数: 13</p>
+                        <div class="chart-scroll-container">
+                            <img src="审计_consistent_smart.png" alt="审计打分一致标注分布" 
+                                 class="scrollable-chart">
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="barchart-item" data-subject="税法" data-category="模型打分偏高">
                     <div class="chart-section">
                         <h5>税法 - 模型打分偏高</h5>
-                        <p>记录数: 10 | 标注数: 10</p>
-                        <img src="税法_high_model_barchart.png" alt="税法模型打分偏高标注分布" style="width: 100%; height: auto;">
+                        <p class="chart-stats">记录数: 4 | 标注数: 4</p>
+                        <div class="chart-scroll-container">
+                            <img src="税法_high_model_smart.png" alt="税法模型打分偏高标注分布" 
+                                 class="scrollable-chart">
+                        </div>
                     </div>
                 </div>
                 
                 <div class="barchart-item" data-subject="税法" data-category="模型打分偏低">
                     <div class="chart-section">
                         <h5>税法 - 模型打分偏低</h5>
-                        <p>记录数: 34 | 标注数: 37</p>
-                        <img src="税法_low_model_barchart.png" alt="税法模型打分偏低标注分布" style="width: 100%; height: auto;">
+                        <p class="chart-stats">记录数: 5 | 标注数: 5</p>
+                        <div class="chart-scroll-container">
+                            <img src="税法_low_model_smart.png" alt="税法模型打分偏低标注分布" 
+                                 class="scrollable-chart">
+                        </div>
                     </div>
                 </div>
                 
                 <div class="barchart-item" data-subject="税法" data-category="打分一致">
                     <div class="chart-section">
                         <h5>税法 - 打分一致</h5>
-                        <p>记录数: 19 | 标注数: 25</p>
-                        <img src="税法_consistent_barchart.png" alt="税法打分一致标注分布" style="width: 100%; height: auto;">
+                        <p class="chart-stats">记录数: 54 | 标注数: 63</p>
+                        <div class="chart-scroll-container">
+                            <img src="税法_consistent_smart.png" alt="税法打分一致标注分布" 
+                                 class="scrollable-chart">
+                        </div>
                     </div>
                 </div>
                 
                 <div class="barchart-item" data-subject="经济法" data-category="模型打分偏高">
                     <div class="chart-section">
                         <h5>经济法 - 模型打分偏高</h5>
-                        <p>记录数: 19 | 标注数: 19</p>
-                        <img src="经济法_high_model_barchart.png" alt="经济法模型打分偏高标注分布" style="width: 100%; height: auto;">
+                        <p class="chart-stats">记录数: 19 | 标注数: 19</p>
+                        <div class="chart-scroll-container">
+                            <img src="经济法_high_model_smart.png" alt="经济法模型打分偏高标注分布" 
+                                 class="scrollable-chart">
+                        </div>
                     </div>
                 </div>
                 
                 <div class="barchart-item" data-subject="经济法" data-category="模型打分偏低">
                     <div class="chart-section">
                         <h5>经济法 - 模型打分偏低</h5>
-                        <p>记录数: 4 | 标注数: 4</p>
-                        <img src="经济法_low_model_barchart.png" alt="经济法模型打分偏低标注分布" style="width: 100%; height: auto;">
+                        <p class="chart-stats">记录数: 2 | 标注数: 2</p>
+                        <div class="chart-scroll-container">
+                            <img src="经济法_low_model_smart.png" alt="经济法模型打分偏低标注分布" 
+                                 class="scrollable-chart">
+                        </div>
                     </div>
                 </div>
                 
                 <div class="barchart-item" data-subject="经济法" data-category="打分一致">
                     <div class="chart-section">
                         <h5>经济法 - 打分一致</h5>
-                        <p>记录数: 12 | 标注数: 12</p>
-                        <img src="经济法_consistent_barchart.png" alt="经济法打分一致标注分布" style="width: 100%; height: auto;">
+                        <p class="chart-stats">记录数: 14 | 标注数: 14</p>
+                        <div class="chart-scroll-container">
+                            <img src="经济法_consistent_smart.png" alt="经济法打分一致标注分布" 
+                                 class="scrollable-chart">
+                        </div>
                     </div>
                 </div>
                 
                 <div class="barchart-item" data-subject="财管" data-category="模型打分偏高">
                     <div class="chart-section">
                         <h5>财管 - 模型打分偏高</h5>
-                        <p>记录数: 37 | 标注数: 42</p>
-                        <img src="财管_high_model_barchart.png" alt="财管模型打分偏高标注分布" style="width: 100%; height: auto;">
+                        <p class="chart-stats">记录数: 19 | 标注数: 24</p>
+                        <div class="chart-scroll-container">
+                            <img src="财管_high_model_smart.png" alt="财管模型打分偏高标注分布" 
+                                 class="scrollable-chart">
+                        </div>
                     </div>
                 </div>
                 
                 <div class="barchart-item" data-subject="财管" data-category="模型打分偏低">
                     <div class="chart-section">
                         <h5>财管 - 模型打分偏低</h5>
-                        <p>记录数: 50 | 标注数: 80</p>
-                        <img src="财管_low_model_barchart.png" alt="财管模型打分偏低标注分布" style="width: 100%; height: auto;">
+                        <p class="chart-stats">记录数: 19 | 标注数: 37</p>
+                        <div class="chart-scroll-container">
+                            <img src="财管_low_model_smart.png" alt="财管模型打分偏低标注分布" 
+                                 class="scrollable-chart">
+                        </div>
                     </div>
                 </div>
                 
                 <div class="barchart-item" data-subject="财管" data-category="打分一致">
                     <div class="chart-section">
                         <h5>财管 - 打分一致</h5>
-                        <p>记录数: 6 | 标注数: 11</p>
-                        <img src="财管_consistent_barchart.png" alt="财管打分一致标注分布" style="width: 100%; height: auto;">
+                        <p class="chart-stats">记录数: 55 | 标注数: 74</p>
+                        <div class="chart-scroll-container">
+                            <img src="财管_consistent_smart.png" alt="财管打分一致标注分布" 
+                                 class="scrollable-chart">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="barchart-item" data-subject="会计" data-category="模型打分偏高">
+                    <div class="chart-section">
+                        <h5>会计 - 模型打分偏高</h5>
+                        <p class="chart-stats">记录数: 8 | 标注数: 8</p>
+                        <div class="chart-scroll-container">
+                            <img src="会计_high_model_smart.png" alt="会计模型打分偏高标注分布" 
+                                 class="scrollable-chart">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="barchart-item" data-subject="会计" data-category="模型打分偏低">
+                    <div class="chart-section">
+                        <h5>会计 - 模型打分偏低</h5>
+                        <p class="chart-stats">记录数: 46 | 标注数: 68</p>
+                        <div class="chart-scroll-container">
+                            <img src="会计_low_model_smart.png" alt="会计模型打分偏低标注分布" 
+                                 class="scrollable-chart">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="barchart-item" data-subject="会计" data-category="打分一致">
+                    <div class="chart-section">
+                        <h5>会计 - 打分一致</h5>
+                        <p class="chart-stats">记录数: 4 | 标注数: 9</p>
+                        <div class="chart-scroll-container">
+                            <img src="会计_consistent_smart.png" alt="会计打分一致标注分布" 
+                                 class="scrollable-chart">
+                        </div>
                     </div>
                 </div>
                 
                 <div class="barchart-item" data-subject="战略" data-category="模型打分偏高">
                     <div class="chart-section">
                         <h5>战略 - 模型打分偏高</h5>
-                        <p>记录数: 14 | 标注数: 51</p>
-                        <img src="战略_high_model_barchart.png" alt="战略模型打分偏高标注分布" style="width: 100%; height: auto;">
+                        <p class="chart-stats">记录数: 12 | 标注数: 44</p>
+                        <div class="chart-scroll-container">
+                            <img src="战略_high_model_smart.png" alt="战略模型打分偏高标注分布" 
+                                 class="scrollable-chart">
+                        </div>
                     </div>
                 </div>
                 
                 <div class="barchart-item" data-subject="战略" data-category="模型打分偏低">
                     <div class="chart-section">
                         <h5>战略 - 模型打分偏低</h5>
-                        <p>记录数: 10 | 标注数: 28</p>
-                        <img src="战略_low_model_barchart.png" alt="战略模型打分偏低标注分布" style="width: 100%; height: auto;">
+                        <p class="chart-stats">记录数: 9 | 标注数: 27</p>
+                        <div class="chart-scroll-container">
+                            <img src="战略_low_model_smart.png" alt="战略模型打分偏低标注分布" 
+                                 class="scrollable-chart">
+                        </div>
                     </div>
                 </div>
                 
                 <div class="barchart-item" data-subject="战略" data-category="打分一致">
                     <div class="chart-section">
                         <h5>战略 - 打分一致</h5>
-                        <p>记录数: 5 | 标注数: 22</p>
-                        <img src="战略_consistent_barchart.png" alt="战略打分一致标注分布" style="width: 100%; height: auto;">
+                        <p class="chart-stats">记录数: 8 | 标注数: 30</p>
+                        <div class="chart-scroll-container">
+                            <img src="战略_consistent_smart.png" alt="战略打分一致标注分布" 
+                                 class="scrollable-chart">
+                        </div>
                     </div>
                 </div>
                 
