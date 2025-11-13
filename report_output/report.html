@@ -1521,7 +1521,7 @@
     <div class="table-section">
         <p>该部分展示各科目模型评分与专家评分的一致性分析结果。其中相关指标释义如下：</p>
          <p class="indent-text">
-            <b>精确一致率</b>：模型评分与专家评分<b>分差为0</b>的比例。<br>
+            <b>精准一致率</b>：模型评分与专家评分<b>分差为0</b>的比例。<br>
             皮尔逊相关系数：衡量模型打分与专家打分在整体趋势上的一致性。通常，系数大于0.6表示强相关，小于0.3表示弱/不相关；<br>
             95%的置信区间：反应了估计的相关系数的不确定性，区间越宽越不确定。比如区间结果为[0.3,0.7]可以理解成：我们有比较强的信心（95%的信心）认为，模型和专家打分的真实一致性，不会比0.3更差，也不会比0.7更好；<br>
             平均绝对误差：衡量模型打分与专家打分在数值上的平均偏差（即相对专家评分来说，模型平均打偏了多少分）。
@@ -1539,6 +1539,14 @@
     
         <div class="table-section">
             <h3>总体一致性评估结果</h3>
+            <div class="table-description">
+                <p>下述准确率是经过了一定策略调整后统计的结果，主要调整内容有：</p>
+                <ul>
+                    <li>标注内容关键词筛选：如果该条记录内老师的标注内容出现了<strong> ['有错字', '过程分', '列式正确，计算结果错误', '要求列出计算过程', '不写也是正确的', '严格', '合并', '拆分']等任一字样，且两者分差不超过0.5分</strong>，该条数据算我们判分无误；</li>
+                    <li>经济法中模型判0分，老师给了1分的数据算模型判分正确；</li>
+                    <li>注：下述经济法中两个相邻一致率的分差为±0.5、±1。</li>
+                </ul>
+            </div>
             
     <style>
         th, td { text-align: center; padding: 6px; }
@@ -1548,7 +1556,7 @@
     </style>
     <table id="overall-table">
         <thead>
-            <tr><th>科目名称</th><th>样本量</th><th>精确一致率</th><th>相邻一致率[±0.25]</th><th>相邻一致率[±0.5]</th><th>模型偏高比例</th><th>模型偏低比例</th><th>皮尔逊相关系数</th><th>95%置信区间</th><th>平均绝对误差</th></tr>
+            <tr><th>科目名称</th><th>样本量</th><th>精准一致率</th><th>相邻一致率[±0.25]</th><th>相邻一致率[±0.5]</th><th>模型偏高比例</th><th>模型偏低比例</th><th>皮尔逊相关系数</th><th>95%置信区间</th><th>平均绝对误差</th></tr>
         </thead>
         <tbody>
     
@@ -1561,7 +1569,7 @@
             </tr>
         
             <tr class="subject-end" data-subject="经济法">
-                <td>经济法</td><td>120</td><td>81.67%</td><td>81.67%</td><td>81.67%</td><td>16.67%</td><td>1.67%</td><td>0.800</td><td>[0.725, 0.857]</td><td>0.267</td>
+                <td>经济法</td><td>120</td><td>81.67%</td><td>81.67%</td><td>91.67%</td><td>16.67%</td><td>1.67%</td><td>0.800</td><td>[0.725, 0.857]</td><td>0.267</td>
             </tr>
         
             <tr class="subject-end" data-subject="财管">
@@ -1569,11 +1577,81 @@
             </tr>
         
             <tr class="subject-end" data-subject="会计">
-                <td>会计</td><td>182</td><td>71.43%</td><td>79.67%</td><td>89.01%</td><td>4.40%</td><td>24.18%</td><td>0.883</td><td>[0.846, 0.912]</td><td>0.229</td>
+                <td>会计</td><td>182</td><td>75.27%</td><td>83.52%</td><td>92.31%</td><td>4.40%</td><td>20.33%</td><td>0.931</td><td>[0.908, 0.948]</td><td>0.161</td>
             </tr>
         
             <tr class="subject-end" data-subject="战略">
                 <td>战略</td><td>30</td><td>30.00%</td><td>50.00%</td><td>66.67%</td><td>40.00%</td><td>30.00%</td><td>0.622</td><td>[0.337, 0.802]</td><td>0.600</td>
+            </tr>
+        
+            <tr class="subject-end" data-subject="总计">
+                <td>总计</td><td>692</td><td>75.43%</td><td>80.35%</td><td>92.49%</td><td>12.86%</td><td>11.71%</td><td>0.863</td><td>-</td><td>0.189</td>
+            </tr>
+        
+        </tbody>
+    </table>
+    
+        </div>
+        
+        <div class="table-section">
+            <h3>得分点层面一致性评估结果</h3>
+            <div class="table-description">
+                <ul>
+                    <li><strong>评分版本说明[修正指的是将某得分点的专家评分调整为与模型评分一致]</strong>：
+                        <ul>
+                            <li><strong>raw</strong>：专家原始评分</li>
+                            <li><strong>1</strong>：修正标注内容包含指定关键词的专家得分点评分</li>
+                            <li><strong>2</strong>：在1的基础上，根据策略（模型和专家均给了分值且两者分差小于0.5）修正专家得分点评分</li>
+                        </ul>
+                    </li>
+                    <li><strong>指标定义</strong>：
+                        <ul>
+                            <li><strong>得分点精准一致率</strong>：从得分点层面统计分差为0的比例</li>
+                            <li><strong>得分点命中率</strong>：先计算每条记录的得分点命中率（该题中所有得分点中分差为0的得分点占比），然后计算所有记录的得分点命中率均值</li>
+                        </ul>
+                    </li>
+                    <li><strong>备注</strong>：经验证发现另一种策略（修正专家与模型分差小于得分点分值一半）的数据结果没有固定0.5分的好</li>
+                </ul>
+            </div>
+            
+    <style>
+        th, td { text-align: center; padding: 6px; }
+        th { border-bottom: 2px solid black; }
+        .subject-end td { border-bottom: 2px solid #333; }  /* 科目分组的最后一行加粗下边框 */
+        table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+    </style>
+    <table id="point-overall-table">
+        <thead>
+            <tr><th>科目名称</th><th>小题数量</th><th>得分点总数</th><th>得分点精准一致率raw</th><th>得分点精准一致率1</th><th>得分点精准一致率2</th><th>得分点命中率raw</th><th>得分点命中率1</th><th>得分点命中率2</th></tr>
+        </thead>
+        <tbody>
+    
+            <tr class="subject-end" data-subject="审计">
+                <td>审计</td><td>4</td><td>632</td><td>91.93%</td><td>92.88%</td><td>94.15%</td><td>92.32%</td><td>93.45%</td><td>94.62%</td>
+            </tr>
+        
+            <tr class="subject-end" data-subject="税法">
+                <td>税法</td><td>6</td><td>208</td><td>82.69%</td><td>85.10%</td><td>85.10%</td><td>79.97%</td><td>83.61%</td><td>83.61%</td>
+            </tr>
+        
+            <tr class="subject-end" data-subject="经济法">
+                <td>经济法</td><td>10</td><td>210</td><td>88.57%</td><td>88.57%</td><td>88.57%</td><td>83.75%</td><td>83.75%</td><td>83.75%</td>
+            </tr>
+        
+            <tr class="subject-end" data-subject="财管">
+                <td>财管</td><td>9</td><td>828</td><td>88.65%</td><td>93.48%</td><td>94.08%</td><td>84.90%</td><td>88.10%</td><td>88.94%</td>
+            </tr>
+        
+            <tr class="subject-end" data-subject="会计">
+                <td>会计</td><td>14</td><td>433</td><td>90.07%</td><td>90.07%</td><td>91.92%</td><td>89.94%</td><td>89.94%</td><td>92.22%</td>
+            </tr>
+        
+            <tr class="subject-end" data-subject="战略">
+                <td>战略</td><td>3</td><td>189</td><td>60.32%</td><td>60.32%</td><td>79.37%</td><td>60.01%</td><td>60.01%</td><td>79.66%</td>
+            </tr>
+        
+            <tr class="subject-end" data-subject="总计">
+                <td>总计</td><td>46</td><td>2500</td><td>87.08%</td><td>89.12%</td><td>91.40%</td><td>84.56%</td><td>85.76%</td><td>88.00%</td>
             </tr>
         
         </tbody>
@@ -1681,7 +1759,7 @@
             </tr>
         
             <tr class="" data-subject="会计">
-                <td></td><td>分录</td><td>19</td><td>52.63%</td><td>52.63%</td><td>68.42%</td><td>0.00%</td><td>47.37%</td><td>0.816</td>
+                <td></td><td>分录</td><td>19</td><td>84.21%</td><td>84.21%</td><td>94.74%</td><td>0.00%</td><td>15.79%</td><td>0.237</td>
             </tr>
         
             <tr class="" data-subject="会计">
@@ -1697,7 +1775,7 @@
             </tr>
         
             <tr class="" data-subject="会计">
-                <td></td><td>计算+文本+分录</td><td>21</td><td>66.67%</td><td>76.19%</td><td>80.95%</td><td>4.76%</td><td>28.57%</td><td>0.262</td>
+                <td></td><td>计算+文本+分录</td><td>21</td><td>71.43%</td><td>80.95%</td><td>85.71%</td><td>4.76%</td><td>23.81%</td><td>0.190</td>
             </tr>
         
             <tr class="" data-subject="会计">
@@ -1785,8 +1863,8 @@
       <td>124 (68.1%)</td>
       <td>58 (31.9%)</td>
       <td>8 (13.8%)</td>
-      <td>44 (75.9%)</td>
-      <td>6 (10.3%)</td>
+      <td>37 (63.8%)</td>
+      <td>13 (22.4%)</td>
     </tr>
     <tr>
       <td>战略</td>
@@ -1971,7 +2049,7 @@
                 <div class="barchart-item" data-subject="会计" data-category="模型打分偏低">
                     <div class="chart-section">
                         <h5>会计 - 模型打分偏低</h5>
-                        <p class="chart-stats">记录数: 44 | 标注数: 66</p>
+                        <p class="chart-stats">记录数: 37 | 标注数: 50</p>
                         <div class="chart-scroll-container">
                             <img src="会计_low_model_smart.png" alt="会计模型打分偏低标注分布" 
                                  class="scrollable-chart">
@@ -1982,7 +2060,7 @@
                 <div class="barchart-item" data-subject="会计" data-category="打分一致">
                     <div class="chart-section">
                         <h5>会计 - 打分一致</h5>
-                        <p class="chart-stats">记录数: 6 | 标注数: 11</p>
+                        <p class="chart-stats">记录数: 13 | 标注数: 27</p>
                         <div class="chart-scroll-container">
                             <img src="会计_consistent_smart.png" alt="会计打分一致标注分布" 
                                  class="scrollable-chart">
@@ -2075,6 +2153,7 @@ $(document).ready(function () {
         // 定义所有需要筛选的表格ID
         const tableIds = [
             'overall-table', 
+            'point-overall-table',
             'question-type-table', 
             'large-score-table', 
             'small-score-table'
