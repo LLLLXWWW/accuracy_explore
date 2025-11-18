@@ -1556,36 +1556,36 @@
     </style>
     <table id="overall-table">
         <thead>
-            <tr><th>科目名称</th><th>样本量</th><th>精准一致率</th><th>相邻一致率[±0.25]</th><th>相邻一致率[±0.5]</th><th>模型偏高比例</th><th>模型偏低比例</th><th>皮尔逊相关系数</th><th>95%置信区间</th><th>平均绝对误差</th></tr>
+            <tr><th>科目名称</th><th>样本量</th><th>精准一致率</th><th>精准一致率[+策略]</th><th>相邻一致率[±0.25]</th><th>相邻一致率[±0.5]</th><th>模型偏高比例</th><th>模型偏低比例</th><th>皮尔逊相关系数</th><th>95%置信区间</th><th>平均绝对误差</th></tr>
         </thead>
         <tbody>
     
             <tr class="subject-end" data-subject="审计">
-                <td>审计</td><td>60</td><td>51.67%</td><td>58.33%</td><td>86.67%</td><td>41.67%</td><td>6.67%</td><td>0.978</td><td>[0.964, 0.987]</td><td>0.287</td>
+                <td>审计</td><td>60</td><td>43.33%</td><td>51.67%</td><td>58.33%</td><td>86.67%</td><td>41.67%</td><td>6.67%</td><td>0.978</td><td>[0.964, 0.987]</td><td>0.287</td>
             </tr>
         
             <tr class="subject-end" data-subject="税法">
-                <td>税法</td><td>120</td><td>87.50%</td><td>88.33%</td><td>96.67%</td><td>4.17%</td><td>8.33%</td><td>0.888</td><td>[0.843, 0.921]</td><td>0.092</td>
+                <td>税法</td><td>120</td><td>83.33%</td><td>87.50%</td><td>88.33%</td><td>96.67%</td><td>4.17%</td><td>8.33%</td><td>0.888</td><td>[0.843, 0.921]</td><td>0.092</td>
             </tr>
         
             <tr class="subject-end" data-subject="经济法">
-                <td>经济法</td><td>120</td><td>81.67%</td><td>81.67%</td><td>91.67%</td><td>16.67%</td><td>1.67%</td><td>0.800</td><td>[0.725, 0.857]</td><td>0.267</td>
+                <td>经济法</td><td>120</td><td>80.00%</td><td>81.67%</td><td>81.67%</td><td>91.67%</td><td>16.67%</td><td>1.67%</td><td>0.800</td><td>[0.725, 0.857]</td><td>0.267</td>
             </tr>
         
             <tr class="subject-end" data-subject="财管">
-                <td>财管</td><td>180</td><td>78.89%</td><td>83.33%</td><td>96.67%</td><td>10.56%</td><td>10.56%</td><td>0.957</td><td>[0.943, 0.968]</td><td>0.130</td>
+                <td>财管</td><td>180</td><td>52.22%</td><td>78.89%</td><td>83.33%</td><td>96.67%</td><td>10.56%</td><td>10.56%</td><td>0.957</td><td>[0.943, 0.968]</td><td>0.130</td>
             </tr>
         
             <tr class="subject-end" data-subject="会计">
-                <td>会计</td><td>182</td><td>75.27%</td><td>83.52%</td><td>92.31%</td><td>4.40%</td><td>20.33%</td><td>0.931</td><td>[0.908, 0.948]</td><td>0.161</td>
+                <td>会计</td><td>182</td><td>71.43%</td><td>75.27%</td><td>83.52%</td><td>92.31%</td><td>4.40%</td><td>20.33%</td><td>0.931</td><td>[0.908, 0.948]</td><td>0.161</td>
             </tr>
         
             <tr class="subject-end" data-subject="战略">
-                <td>战略</td><td>30</td><td>30.00%</td><td>50.00%</td><td>66.67%</td><td>40.00%</td><td>30.00%</td><td>0.622</td><td>[0.337, 0.802]</td><td>0.600</td>
+                <td>战略</td><td>42</td><td>30.95%</td><td>30.95%</td><td>50.00%</td><td>73.81%</td><td>30.95%</td><td>38.10%</td><td>0.719</td><td>[0.531, 0.840]</td><td>0.518</td>
             </tr>
         
             <tr class="subject-end" data-subject="总计">
-                <td>总计</td><td>692</td><td>75.43%</td><td>80.35%</td><td>92.49%</td><td>12.86%</td><td>11.71%</td><td>0.863</td><td>-</td><td>0.189</td>
+                <td>总计</td><td>704</td><td>65.20%</td><td>74.72%</td><td>79.83%</td><td>92.47%</td><td>12.78%</td><td>12.50%</td><td>0.879</td><td>-</td><td>0.191</td>
             </tr>
         
         </tbody>
@@ -1622,36 +1622,36 @@
     </style>
     <table id="point-overall-table">
         <thead>
-            <tr><th>科目名称</th><th>小题数量</th><th>得分点总数</th><th>得分点精准一致率raw</th><th>得分点精准一致率1</th><th>得分点精准一致率2</th><th>得分点命中率raw</th><th>得分点命中率1</th><th>得分点命中率2</th></tr>
+            <tr><th>科目名称</th><th>小题数量</th><th>得分点总数</th><th>平均每个题目的得分点</th><th>得分点精准一致率raw</th><th>得分点精准一致率1</th><th>得分点精准一致率2</th><th>得分点命中率raw</th><th>得分点命中率1</th><th>得分点命中率2</th></tr>
         </thead>
         <tbody>
     
             <tr class="subject-end" data-subject="审计">
-                <td>审计</td><td>4</td><td>632</td><td>91.93%</td><td>92.88%</td><td>94.15%</td><td>92.32%</td><td>93.45%</td><td>94.62%</td>
+                <td>审计</td><td>4</td><td>632</td><td>10.53</td><td>91.93%</td><td>92.88%</td><td>94.15%</td><td>92.32%</td><td>93.45%</td><td>94.62%</td>
             </tr>
         
             <tr class="subject-end" data-subject="税法">
-                <td>税法</td><td>6</td><td>208</td><td>82.69%</td><td>85.10%</td><td>85.10%</td><td>79.97%</td><td>83.61%</td><td>83.61%</td>
+                <td>税法</td><td>6</td><td>208</td><td>1.89</td><td>82.69%</td><td>85.10%</td><td>85.10%</td><td>79.97%</td><td>83.61%</td><td>83.61%</td>
             </tr>
         
             <tr class="subject-end" data-subject="经济法">
-                <td>经济法</td><td>10</td><td>210</td><td>88.57%</td><td>88.57%</td><td>88.57%</td><td>83.75%</td><td>83.75%</td><td>83.75%</td>
+                <td>经济法</td><td>10</td><td>210</td><td>1.75</td><td>88.57%</td><td>88.57%</td><td>88.57%</td><td>83.75%</td><td>83.75%</td><td>83.75%</td>
             </tr>
         
             <tr class="subject-end" data-subject="财管">
-                <td>财管</td><td>9</td><td>828</td><td>88.65%</td><td>93.48%</td><td>94.08%</td><td>84.90%</td><td>88.10%</td><td>88.94%</td>
+                <td>财管</td><td>9</td><td>828</td><td>4.73</td><td>88.65%</td><td>93.48%</td><td>94.08%</td><td>84.90%</td><td>88.10%</td><td>88.94%</td>
             </tr>
         
             <tr class="subject-end" data-subject="会计">
-                <td>会计</td><td>14</td><td>433</td><td>90.07%</td><td>90.07%</td><td>91.92%</td><td>89.94%</td><td>89.94%</td><td>92.22%</td>
+                <td>会计</td><td>14</td><td>433</td><td>2.47</td><td>90.07%</td><td>90.07%</td><td>91.92%</td><td>89.94%</td><td>89.94%</td><td>92.22%</td>
             </tr>
         
             <tr class="subject-end" data-subject="战略">
-                <td>战略</td><td>3</td><td>189</td><td>60.32%</td><td>60.32%</td><td>79.37%</td><td>60.01%</td><td>60.01%</td><td>79.66%</td>
+                <td>战略</td><td>5</td><td>224</td><td>5.33</td><td>61.16%</td><td>61.16%</td><td>78.12%</td><td>61.60%</td><td>61.60%</td><td>77.22%</td>
             </tr>
         
             <tr class="subject-end" data-subject="总计">
-                <td>总计</td><td>46</td><td>2500</td><td>87.08%</td><td>89.12%</td><td>91.40%</td><td>84.56%</td><td>85.76%</td><td>88.00%</td>
+                <td>总计</td><td>48</td><td>2535</td><td>3.72%</td><td>86.79%</td><td>88.80%</td><td>91.12%</td><td>83.71%</td><td>84.86%</td><td>87.40%</td>
             </tr>
         
         </tbody>
@@ -1670,124 +1670,124 @@
     </style>
     <table id="question-type-table">
         <thead>
-            <tr><th>科目名称</th><th>题型</th><th>样本量</th><th>精确一致率</th><th>相邻一致率[±0.25]</th><th>相邻一致率[±0.5]</th><th>模型偏高比例</th><th>模型偏低比例</th><th>平均绝对误差</th></tr>
+            <tr><th>科目名称</th><th>题型</th><th>样本量</th><th>精确一致率</th><th>相邻一致率[±0.25]</th><th>相邻一致率[±0.5]</th><th>模型偏高比例</th><th>模型偏低比例</th><th>平均绝对误差</th><th>得分点命中率raw</th></tr>
         </thead>
         <tbody>
     
             <tr class="" data-subject="审计">
-                <td>审计</td><td>观点+理由+认定</td><td>30</td><td>33.33%</td><td>40.00%</td><td>76.67%</td><td>56.67%</td><td>10.00%</td><td>0.425</td>
+                <td>审计</td><td>观点+理由+认定</td><td>30</td><td>33.33%</td><td>40.00%</td><td>76.67%</td><td>56.67%</td><td>10.00%</td><td>0.42</td><td>91.40%</td>
             </tr>
         
             <tr class="subject-end" data-subject="审计">
-                <td></td><td>观点+理由</td><td>30</td><td>70.00%</td><td>76.67%</td><td>96.67%</td><td>26.67%</td><td>3.33%</td><td>0.150</td>
+                <td></td><td>观点+理由</td><td>30</td><td>70.00%</td><td>76.67%</td><td>96.67%</td><td>26.67%</td><td>3.33%</td><td>0.15</td><td>93.16%</td>
             </tr>
         
             <tr class="" data-subject="税法">
-                <td>税法</td><td>计算+文本</td><td>17</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>0.00%</td><td>0.00%</td><td>0.000</td>
+                <td>税法</td><td>计算+文本</td><td>17</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>0.00%</td><td>0.00%</td><td>0.00</td><td>90.32%</td>
             </tr>
         
             <tr class="" data-subject="税法">
-                <td></td><td>观点+计算</td><td>17</td><td>64.71%</td><td>64.71%</td><td>100.00%</td><td>0.00%</td><td>35.29%</td><td>0.176</td>
+                <td></td><td>文本</td><td>17</td><td>64.71%</td><td>70.59%</td><td>94.12%</td><td>23.53%</td><td>11.76%</td><td>0.18</td><td>35.29%</td>
             </tr>
         
             <tr class="" data-subject="税法">
-                <td></td><td>文本</td><td>17</td><td>64.71%</td><td>70.59%</td><td>94.12%</td><td>23.53%</td><td>11.76%</td><td>0.176</td>
+                <td></td><td>观点+计算</td><td>17</td><td>64.71%</td><td>64.71%</td><td>100.00%</td><td>0.00%</td><td>35.29%</td><td>0.18</td><td>100.00%</td>
             </tr>
         
             <tr class="" data-subject="税法">
-                <td></td><td>理由+计算</td><td>16</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>0.00%</td><td>0.00%</td><td>0.000</td>
+                <td></td><td>理由+计算</td><td>16</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>0.00%</td><td>0.00%</td><td>0.00</td><td>90.62%</td>
             </tr>
         
             <tr class="" data-subject="税法">
-                <td></td><td>计算</td><td>30</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>0.00%</td><td>0.00%</td><td>0.000</td>
+                <td></td><td>观点+理由</td><td>23</td><td>86.96%</td><td>86.96%</td><td>86.96%</td><td>4.35%</td><td>8.70%</td><td>0.22</td><td>65.22%</td>
             </tr>
         
             <tr class="subject-end" data-subject="税法">
-                <td></td><td>观点+理由</td><td>23</td><td>86.96%</td><td>86.96%</td><td>86.96%</td><td>4.35%</td><td>8.70%</td><td>0.217</td>
+                <td></td><td>计算</td><td>30</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>0.00%</td><td>0.00%</td><td>0.00</td><td>100.00%</td>
             </tr>
         
             <tr class="" data-subject="经济法">
-                <td>经济法</td><td>观点+理由</td><td>90</td><td>90.00%</td><td>90.00%</td><td>90.00%</td><td>7.78%</td><td>2.22%</td><td>0.133</td>
+                <td>经济法</td><td>文本</td><td>30</td><td>56.67%</td><td>56.67%</td><td>56.67%</td><td>43.33%</td><td>0.00%</td><td>0.67</td><td>50.00%</td>
             </tr>
         
             <tr class="subject-end" data-subject="经济法">
-                <td></td><td>文本</td><td>30</td><td>56.67%</td><td>56.67%</td><td>56.67%</td><td>43.33%</td><td>0.00%</td><td>0.667</td>
+                <td></td><td>观点+理由</td><td>90</td><td>90.00%</td><td>90.00%</td><td>90.00%</td><td>7.78%</td><td>2.22%</td><td>0.13</td><td>95.00%</td>
             </tr>
         
             <tr class="" data-subject="财管">
-                <td>财管</td><td>观点+计算</td><td>18</td><td>38.89%</td><td>44.44%</td><td>77.78%</td><td>0.00%</td><td>61.11%</td><td>0.569</td>
+                <td>财管</td><td>观点+计算</td><td>18</td><td>38.89%</td><td>44.44%</td><td>77.78%</td><td>0.00%</td><td>61.11%</td><td>0.57</td><td>84.00%</td>
             </tr>
         
             <tr class="" data-subject="财管">
-                <td></td><td>观点+表格</td><td>17</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>0.00%</td><td>0.00%</td><td>0.000</td>
+                <td></td><td>观点</td><td>17</td><td>94.12%</td><td>94.12%</td><td>100.00%</td><td>5.88%</td><td>0.00%</td><td>0.03</td><td>94.12%</td>
             </tr>
         
             <tr class="" data-subject="财管">
-                <td></td><td>观点+理由</td><td>17</td><td>70.59%</td><td>70.59%</td><td>94.12%</td><td>0.00%</td><td>29.41%</td><td>0.176</td>
+                <td></td><td>计算+文本</td><td>17</td><td>94.12%</td><td>94.12%</td><td>94.12%</td><td>5.88%</td><td>0.00%</td><td>0.09</td><td>91.30%</td>
             </tr>
         
             <tr class="" data-subject="财管">
-                <td></td><td>计算+文本</td><td>17</td><td>94.12%</td><td>94.12%</td><td>94.12%</td><td>5.88%</td><td>0.00%</td><td>0.088</td>
+                <td></td><td>观点+理由</td><td>17</td><td>70.59%</td><td>70.59%</td><td>94.12%</td><td>0.00%</td><td>29.41%</td><td>0.18</td><td>82.76%</td>
             </tr>
         
             <tr class="" data-subject="财管">
-                <td></td><td>观点</td><td>17</td><td>94.12%</td><td>94.12%</td><td>100.00%</td><td>5.88%</td><td>0.00%</td><td>0.029</td>
+                <td></td><td>观点+表格</td><td>17</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>0.00%</td><td>0.00%</td><td>0.00</td><td>93.90%</td>
             </tr>
         
             <tr class="" data-subject="财管">
-                <td></td><td>表格</td><td>30</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>0.00%</td><td>0.00%</td><td>0.000</td>
+                <td></td><td>表格</td><td>30</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>0.00%</td><td>0.00%</td><td>0.00</td><td>88.33%</td>
             </tr>
         
             <tr class="" data-subject="财管">
-                <td></td><td>文本</td><td>17</td><td>41.18%</td><td>47.06%</td><td>100.00%</td><td>52.94%</td><td>5.88%</td><td>0.271</td>
+                <td></td><td>计算</td><td>30</td><td>70.00%</td><td>90.00%</td><td>100.00%</td><td>26.67%</td><td>3.33%</td><td>0.10</td><td>86.79%</td>
             </tr>
         
             <tr class="" data-subject="财管">
-                <td></td><td>观点+理由+计算</td><td>17</td><td>94.12%</td><td>94.12%</td><td>100.00%</td><td>0.00%</td><td>5.88%</td><td>0.029</td>
+                <td></td><td>文本</td><td>17</td><td>41.18%</td><td>47.06%</td><td>100.00%</td><td>52.94%</td><td>5.88%</td><td>0.27</td><td>35.71%</td>
             </tr>
         
             <tr class="subject-end" data-subject="财管">
-                <td></td><td>计算</td><td>30</td><td>70.00%</td><td>90.00%</td><td>100.00%</td><td>26.67%</td><td>3.33%</td><td>0.100</td>
+                <td></td><td>观点+理由+计算</td><td>17</td><td>94.12%</td><td>94.12%</td><td>100.00%</td><td>0.00%</td><td>5.88%</td><td>0.03</td><td>100.00%</td>
             </tr>
         
             <tr class="" data-subject="会计">
-                <td>会计</td><td>观点+理由+分录</td><td>18</td><td>22.22%</td><td>66.67%</td><td>100.00%</td><td>5.56%</td><td>72.22%</td><td>0.278</td>
+                <td>会计</td><td>计算+文本+分录</td><td>21</td><td>71.43%</td><td>80.95%</td><td>85.71%</td><td>4.76%</td><td>23.81%</td><td>0.19</td><td>95.45%</td>
             </tr>
         
             <tr class="" data-subject="会计">
-                <td></td><td>计算+文本</td><td>18</td><td>77.78%</td><td>77.78%</td><td>77.78%</td><td>22.22%</td><td>0.00%</td><td>0.222</td>
+                <td></td><td>分录</td><td>19</td><td>84.21%</td><td>84.21%</td><td>94.74%</td><td>0.00%</td><td>15.79%</td><td>0.24</td><td>98.18%</td>
             </tr>
         
             <tr class="" data-subject="会计">
-                <td></td><td>分录</td><td>19</td><td>84.21%</td><td>84.21%</td><td>94.74%</td><td>0.00%</td><td>15.79%</td><td>0.237</td>
+                <td></td><td>观点+理由</td><td>18</td><td>83.33%</td><td>83.33%</td><td>94.44%</td><td>0.00%</td><td>16.67%</td><td>0.11</td><td>88.57%</td>
             </tr>
         
             <tr class="" data-subject="会计">
-                <td></td><td>计算+分录</td><td>30</td><td>90.00%</td><td>90.00%</td><td>90.00%</td><td>0.00%</td><td>10.00%</td><td>0.133</td>
+                <td></td><td>观点+理由+分录</td><td>18</td><td>22.22%</td><td>66.67%</td><td>100.00%</td><td>5.56%</td><td>72.22%</td><td>0.28</td><td>72.00%</td>
             </tr>
         
             <tr class="" data-subject="会计">
-                <td></td><td>观点+理由+计算+分录</td><td>19</td><td>68.42%</td><td>68.42%</td><td>89.47%</td><td>0.00%</td><td>31.58%</td><td>0.211</td>
+                <td></td><td>观点+理由+计算+分录</td><td>19</td><td>68.42%</td><td>68.42%</td><td>89.47%</td><td>0.00%</td><td>31.58%</td><td>0.21</td><td>88.00%</td>
             </tr>
         
             <tr class="" data-subject="会计">
-                <td></td><td>文本</td><td>18</td><td>66.67%</td><td>94.44%</td><td>100.00%</td><td>11.11%</td><td>22.22%</td><td>0.097</td>
+                <td></td><td>计算</td><td>21</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>0.00%</td><td>0.00%</td><td>0.00</td><td>100.00%</td>
             </tr>
         
             <tr class="" data-subject="会计">
-                <td></td><td>计算+文本+分录</td><td>21</td><td>71.43%</td><td>80.95%</td><td>85.71%</td><td>4.76%</td><td>23.81%</td><td>0.190</td>
+                <td></td><td>计算+文本</td><td>18</td><td>77.78%</td><td>77.78%</td><td>77.78%</td><td>22.22%</td><td>0.00%</td><td>0.22</td><td>85.71%</td>
             </tr>
         
             <tr class="" data-subject="会计">
-                <td></td><td>观点+理由</td><td>18</td><td>83.33%</td><td>83.33%</td><td>94.44%</td><td>0.00%</td><td>16.67%</td><td>0.111</td>
+                <td></td><td>文本</td><td>18</td><td>66.67%</td><td>94.44%</td><td>100.00%</td><td>11.11%</td><td>22.22%</td><td>0.10</td><td>69.23%</td>
             </tr>
         
             <tr class="subject-end" data-subject="会计">
-                <td></td><td>计算</td><td>21</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>0.00%</td><td>0.00%</td><td>0.000</td>
+                <td></td><td>计算+分录</td><td>30</td><td>90.00%</td><td>90.00%</td><td>90.00%</td><td>0.00%</td><td>10.00%</td><td>0.13</td><td>96.59%</td>
             </tr>
         
             <tr class="subject-end" data-subject="战略">
-                <td>战略</td><td>知识点和材料</td><td>30</td><td>30.00%</td><td>50.00%</td><td>66.67%</td><td>40.00%</td><td>30.00%</td><td>0.600</td>
+                <td>战略</td><td>知识点和材料</td><td>42</td><td>30.95%</td><td>50.00%</td><td>73.81%</td><td>30.95%</td><td>38.10%</td><td>0.52</td><td>61.16%</td>
             </tr>
         
         </tbody>
@@ -1868,12 +1868,12 @@
     </tr>
     <tr>
       <td>战略</td>
-      <td>30</td>
-      <td>1 (3.3%)</td>
-      <td>29 (96.7%)</td>
-      <td>12 (41.4%)</td>
-      <td>9 (31.0%)</td>
-      <td>8 (27.6%)</td>
+      <td>42</td>
+      <td>4 (9.5%)</td>
+      <td>38 (90.5%)</td>
+      <td>13 (34.2%)</td>
+      <td>16 (42.1%)</td>
+      <td>9 (23.7%)</td>
     </tr>
   </tbody>
 </table>
@@ -2071,7 +2071,7 @@
                 <div class="barchart-item" data-subject="战略" data-category="模型打分偏高">
                     <div class="chart-section">
                         <h5>战略 - 模型打分偏高</h5>
-                        <p class="chart-stats">记录数: 12 | 标注数: 44</p>
+                        <p class="chart-stats">记录数: 13 | 标注数: 45</p>
                         <div class="chart-scroll-container">
                             <img src="战略_high_model_smart.png" alt="战略模型打分偏高标注分布" 
                                  class="scrollable-chart">
@@ -2082,7 +2082,7 @@
                 <div class="barchart-item" data-subject="战略" data-category="模型打分偏低">
                     <div class="chart-section">
                         <h5>战略 - 模型打分偏低</h5>
-                        <p class="chart-stats">记录数: 9 | 标注数: 27</p>
+                        <p class="chart-stats">记录数: 16 | 标注数: 47</p>
                         <div class="chart-scroll-container">
                             <img src="战略_low_model_smart.png" alt="战略模型打分偏低标注分布" 
                                  class="scrollable-chart">
@@ -2093,7 +2093,7 @@
                 <div class="barchart-item" data-subject="战略" data-category="打分一致">
                     <div class="chart-section">
                         <h5>战略 - 打分一致</h5>
-                        <p class="chart-stats">记录数: 8 | 标注数: 30</p>
+                        <p class="chart-stats">记录数: 9 | 标注数: 31</p>
                         <div class="chart-scroll-container">
                             <img src="战略_consistent_smart.png" alt="战略打分一致标注分布" 
                                  class="scrollable-chart">
