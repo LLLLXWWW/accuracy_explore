@@ -1544,6 +1544,7 @@
                 <ul>
                     <li>标注内容关键词筛选：如果该条记录内老师的标注内容出现了<strong> ['有错字', '过程分', '列式正确，计算结果错误', '要求列出计算过程', '不写也是正确的', '严格', '合并', '拆分']等任一字样，且两者分差不超过0.5分</strong>，该条数据算我们判分无误；</li>
                     <li>经济法中模型判0分，老师给了1分的数据算模型判分正确；</li>
+                    <li>会计中标注内容为["报表中的项目名称是固定的，不能因为关键字对了就给分值", "分录正确，只是列示了计算过程，可以得分"]的记录算模型判分无误【模型已优化对应问题】；</li>
                     <li>注：下述经济法中两个相邻一致率的分差为±0.5、±1。</li>
                 </ul>
             </div>
@@ -1577,15 +1578,15 @@
             </tr>
         
             <tr class="subject-end" data-subject="会计">
-                <td>会计</td><td>182</td><td>71.43%</td><td>75.27%</td><td>83.52%</td><td>92.31%</td><td>4.40%</td><td>20.33%</td><td>0.931</td><td>[0.908, 0.948]</td><td>0.161</td>
+                <td>会计</td><td>182</td><td>71.43%</td><td>78.02%</td><td>86.26%</td><td>94.51%</td><td>2.20%</td><td>19.78%</td><td>0.943</td><td>[0.924, 0.957]</td><td>0.136</td>
             </tr>
         
             <tr class="subject-end" data-subject="战略">
-                <td>战略</td><td>66</td><td>40.91%</td><td>42.42%</td><td>59.09%</td><td>81.82%</td><td>19.70%</td><td>37.88%</td><td>0.777</td><td>[0.659, 0.858]</td><td>0.390</td>
+                <td>战略</td><td>60</td><td>35.00%</td><td>40.00%</td><td>48.33%</td><td>73.33%</td><td>3.33%</td><td>56.67%</td><td>0.795</td><td>[0.679, 0.873]</td><td>0.521</td>
             </tr>
         
             <tr class="subject-end" data-subject="总计">
-                <td>总计</td><td>728</td><td>64.97%</td><td>74.31%</td><td>79.67%</td><td>92.58%</td><td>12.36%</td><td>13.32%</td><td>0.889</td><td>-</td><td>0.190</td>
+                <td>总计</td><td>722</td><td>64.68%</td><td>75.07%</td><td>79.64%</td><td>92.52%</td><td>10.39%</td><td>14.54%</td><td>0.894</td><td>-</td><td>0.193</td>
             </tr>
         
         </tbody>
@@ -1643,15 +1644,15 @@
             </tr>
         
             <tr class="subject-end" data-subject="会计">
-                <td>会计</td><td>14</td><td>433</td><td>2.47</td><td>90.07%</td><td>90.07%</td><td>91.92%</td><td>89.94%</td><td>89.94%</td><td>92.22%</td>
+                <td>会计</td><td>14</td><td>433</td><td>2.47</td><td>90.07%</td><td>90.99%</td><td>92.84%</td><td>89.94%</td><td>91.09%</td><td>93.36%</td>
             </tr>
         
             <tr class="subject-end" data-subject="战略">
-                <td>战略</td><td>8</td><td>300</td><td>4.55</td><td>66.67%</td><td>67.00%</td><td>81.67%</td><td>68.31%</td><td>68.69%</td><td>82.04%</td>
+                <td>战略</td><td>6</td><td>270</td><td>4.50</td><td>72.22%</td><td>73.33%</td><td>81.11%</td><td>72.75%</td><td>73.59%</td><td>81.90%</td>
             </tr>
         
             <tr class="subject-end" data-subject="总计">
-                <td>总计</td><td>51</td><td>2611</td><td>3.70</td><td>86.75%</td><td>88.74%</td><td>91.23%</td><td>83.68%</td><td>84.83%</td><td>87.78%</td>
+                <td>总计</td><td>49</td><td>2581</td><td>3.69</td><td>87.56%</td><td>89.81%</td><td>91.44%</td><td>84.86%</td><td>86.41%</td><td>88.33%</td>
             </tr>
         
         </tbody>
@@ -1755,7 +1756,7 @@
             </tr>
         
             <tr class="" data-subject="会计">
-                <td></td><td>分录</td><td>19</td><td>84.21%</td><td>84.21%</td><td>94.74%</td><td>0.00%</td><td>15.79%</td><td>0.24</td><td>98.18%</td>
+                <td></td><td>分录</td><td>19</td><td>89.47%</td><td>89.47%</td><td>94.74%</td><td>0.00%</td><td>10.53%</td><td>0.21</td><td>98.18%</td>
             </tr>
         
             <tr class="" data-subject="会计">
@@ -1775,7 +1776,7 @@
             </tr>
         
             <tr class="" data-subject="会计">
-                <td></td><td>计算+文本</td><td>18</td><td>77.78%</td><td>77.78%</td><td>77.78%</td><td>22.22%</td><td>0.00%</td><td>0.22</td><td>85.71%</td>
+                <td></td><td>计算+文本</td><td>18</td><td>100.00%</td><td>100.00%</td><td>100.00%</td><td>0.00%</td><td>0.00%</td><td>0.00</td><td>85.71%</td>
             </tr>
         
             <tr class="" data-subject="会计">
@@ -1787,7 +1788,7 @@
             </tr>
         
             <tr class="subject-end" data-subject="战略">
-                <td>战略</td><td>知识点和材料</td><td>66</td><td>42.42%</td><td>59.09%</td><td>81.82%</td><td>19.70%</td><td>37.88%</td><td>0.39</td><td>66.67%</td>
+                <td>战略</td><td>知识点和材料</td><td>60</td><td>40.00%</td><td>48.33%</td><td>73.33%</td><td>3.33%</td><td>56.67%</td><td>0.52</td><td>72.22%</td>
             </tr>
         
         </tbody>
@@ -1862,18 +1863,18 @@
       <td>182</td>
       <td>124 (68.1%)</td>
       <td>58 (31.9%)</td>
-      <td>8 (13.8%)</td>
-      <td>37 (63.8%)</td>
-      <td>13 (22.4%)</td>
+      <td>4 (6.9%)</td>
+      <td>36 (62.1%)</td>
+      <td>18 (31.0%)</td>
     </tr>
     <tr>
       <td>战略</td>
-      <td>66</td>
-      <td>9 (13.6%)</td>
-      <td>57 (86.4%)</td>
-      <td>13 (22.8%)</td>
-      <td>25 (43.9%)</td>
-      <td>19 (33.3%)</td>
+      <td>60</td>
+      <td>10 (16.7%)</td>
+      <td>50 (83.3%)</td>
+      <td>2 (4.0%)</td>
+      <td>34 (68.0%)</td>
+      <td>14 (28.0%)</td>
     </tr>
   </tbody>
 </table>
@@ -2038,7 +2039,7 @@
                 <div class="barchart-item" data-subject="会计" data-category="模型打分偏高">
                     <div class="chart-section">
                         <h5>会计 - 模型打分偏高</h5>
-                        <p class="chart-stats">记录数: 8 | 标注数: 8</p>
+                        <p class="chart-stats">记录数: 4 | 标注数: 4</p>
                         <div class="chart-scroll-container">
                             <img src="会计_high_model_smart.png" alt="会计模型打分偏高标注分布" 
                                  class="scrollable-chart">
@@ -2049,7 +2050,7 @@
                 <div class="barchart-item" data-subject="会计" data-category="模型打分偏低">
                     <div class="chart-section">
                         <h5>会计 - 模型打分偏低</h5>
-                        <p class="chart-stats">记录数: 37 | 标注数: 50</p>
+                        <p class="chart-stats">记录数: 36 | 标注数: 49</p>
                         <div class="chart-scroll-container">
                             <img src="会计_low_model_smart.png" alt="会计模型打分偏低标注分布" 
                                  class="scrollable-chart">
@@ -2060,7 +2061,7 @@
                 <div class="barchart-item" data-subject="会计" data-category="打分一致">
                     <div class="chart-section">
                         <h5>会计 - 打分一致</h5>
-                        <p class="chart-stats">记录数: 13 | 标注数: 27</p>
+                        <p class="chart-stats">记录数: 18 | 标注数: 32</p>
                         <div class="chart-scroll-container">
                             <img src="会计_consistent_smart.png" alt="会计打分一致标注分布" 
                                  class="scrollable-chart">
@@ -2071,7 +2072,7 @@
                 <div class="barchart-item" data-subject="战略" data-category="模型打分偏高">
                     <div class="chart-section">
                         <h5>战略 - 模型打分偏高</h5>
-                        <p class="chart-stats">记录数: 13 | 标注数: 45</p>
+                        <p class="chart-stats">记录数: 2 | 标注数: 2</p>
                         <div class="chart-scroll-container">
                             <img src="战略_high_model_smart.png" alt="战略模型打分偏高标注分布" 
                                  class="scrollable-chart">
@@ -2082,7 +2083,7 @@
                 <div class="barchart-item" data-subject="战略" data-category="模型打分偏低">
                     <div class="chart-section">
                         <h5>战略 - 模型打分偏低</h5>
-                        <p class="chart-stats">记录数: 25 | 标注数: 63</p>
+                        <p class="chart-stats">记录数: 34 | 标注数: 95</p>
                         <div class="chart-scroll-container">
                             <img src="战略_low_model_smart.png" alt="战略模型打分偏低标注分布" 
                                  class="scrollable-chart">
@@ -2093,7 +2094,7 @@
                 <div class="barchart-item" data-subject="战略" data-category="打分一致">
                     <div class="chart-section">
                         <h5>战略 - 打分一致</h5>
-                        <p class="chart-stats">记录数: 19 | 标注数: 43</p>
+                        <p class="chart-stats">记录数: 14 | 标注数: 18</p>
                         <div class="chart-scroll-container">
                             <img src="战略_consistent_smart.png" alt="战略打分一致标注分布" 
                                  class="scrollable-chart">
