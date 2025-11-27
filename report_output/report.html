@@ -1560,6 +1560,7 @@
                             <li>若专家标注内容包含关键词<strong> ['酌情', '有错字', '过程分', '列式正确，计算结果错误', '要求列出计算过程', '不写也是正确的', '严格', '合并', '拆分']任一字样，且分差不超过0.5分</strong>，视为模型判分合理；</li>
                             <li>经济法中模型判0分、专家给1分的情形，视为模型判分合理（因1分常为象征性给分）；</li>
                             <li>会计中专家标注内容为["报表中的项目名称是固定的，不能因为关键字对了就给分值", "分录正确，只是列示了计算过程，可以得分"]已纳入模型优化逻辑，对应记录判为正确；</li>
+                            <li>财管中专家标注内容为["概念回答错误", "概念错误"]已纳入模型优化逻辑，对应记录判为正确；</li>
                         </ul>
                     </li>
                     <li><strong>容错指标</strong>（在策略修正基础上允许小幅偏差的一致性比例）：
@@ -1598,7 +1599,7 @@
             </tr>
         
             <tr class="subject-end" data-subject="财管">
-        <td>财管</td><td>180</td><td>52.22%</td><td>84.44%</td><td>88.33%</td><td>98.33%</td><td>85.23%</td><td>89.39%</td><td>90.22%</td><td style="font-weight: bold; color: #221BE0;">89.39%</td>
+        <td>财管</td><td>180</td><td>52.22%</td><td>83.33%</td><td>87.78%</td><td>96.67%</td><td>85.23%</td><td>92.56%</td><td>93.38%</td><td style="font-weight: bold; color: #221BE0;">92.56%</td>
             </tr>
         
             <tr class="subject-end" data-subject="会计">
@@ -1610,7 +1611,7 @@
             </tr>
         
             <tr class="subject-end" data-subject="总计">
-        <td>总计</td><td>702</td><td>67.09%</td><td>80.48%</td><td>85.04%</td><td>95.87%</td><td>88.40%</td><td>90.17%</td><td>91.85%</td><td style="font-weight: bold; color: #221BE0;">90.94%</td>
+        <td>总计</td><td>702</td><td>67.09%</td><td>80.20%</td><td>84.90%</td><td>95.44%</td><td>88.40%</td><td>90.77%</td><td>92.45%</td><td style="font-weight: bold; color: #221BE0;">91.54%</td>
             </tr>
         
         </tbody>
@@ -1675,7 +1676,7 @@
             </tr>
         
             <tr class="" data-subject="财管">
-        <td>财管</td><td>观点+计算</td><td>18</td><td>38.89%</td><td>94.44%</td><td>94.44%</td><td>94.44%</td><td>85.00%</td><td>95.19%</td>
+        <td>财管</td><td>观点+计算</td><td>18</td><td>38.89%</td><td>38.89%</td><td>44.44%</td><td>77.78%</td><td>85.00%</td><td>85.00%</td>
             </tr>
         
             <tr class="" data-subject="财管">
@@ -1699,7 +1700,7 @@
             </tr>
         
             <tr class="" data-subject="财管">
-        <td></td><td>文本</td><td>17</td><td>41.18%</td><td>41.18%</td><td>47.06%</td><td>100.00%</td><td>46.88%</td><td>46.88%</td>
+        <td></td><td>文本</td><td>17</td><td>41.18%</td><td>88.24%</td><td>94.12%</td><td>100.00%</td><td>46.88%</td><td>93.75%</td>
             </tr>
         
             <tr class="" data-subject="财管">
@@ -1813,9 +1814,9 @@
       <td>180</td>
       <td>87 (48.3%)</td>
       <td>93 (51.7%)</td>
+      <td>11 (11.8%)</td>
       <td>19 (20.4%)</td>
-      <td>9 (9.7%)</td>
-      <td>65 (69.9%)</td>
+      <td>63 (67.7%)</td>
     </tr>
     <tr>
       <td>会计</td>
@@ -1965,7 +1966,7 @@
                 <div class="barchart-item" data-subject="财管" data-category="模型打分偏高">
                     <div class="chart-section">
                         <h5>财管 - 模型打分偏高</h5>
-                        <p class="chart-stats">记录数: 19 | 标注数: 24</p>
+                        <p class="chart-stats">记录数: 11 | 标注数: 16</p>
                         <div class="chart-scroll-container">
                             <img src="财管_high_model_smart.png" alt="财管模型打分偏高标注分布" 
                                  class="scrollable-chart">
@@ -1976,7 +1977,7 @@
                 <div class="barchart-item" data-subject="财管" data-category="模型打分偏低">
                     <div class="chart-section">
                         <h5>财管 - 模型打分偏低</h5>
-                        <p class="chart-stats">记录数: 9 | 标注数: 9</p>
+                        <p class="chart-stats">记录数: 19 | 标注数: 37</p>
                         <div class="chart-scroll-container">
                             <img src="财管_low_model_smart.png" alt="财管模型打分偏低标注分布" 
                                  class="scrollable-chart">
@@ -1987,7 +1988,7 @@
                 <div class="barchart-item" data-subject="财管" data-category="打分一致">
                     <div class="chart-section">
                         <h5>财管 - 打分一致</h5>
-                        <p class="chart-stats">记录数: 65 | 标注数: 102</p>
+                        <p class="chart-stats">记录数: 63 | 标注数: 82</p>
                         <div class="chart-scroll-container">
                             <img src="财管_consistent_smart.png" alt="财管打分一致标注分布" 
                                  class="scrollable-chart">
